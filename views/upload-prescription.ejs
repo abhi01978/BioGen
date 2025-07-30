@@ -1,0 +1,24 @@
+<form 
+  action="https://formsubmit.co/ac9303720@gmail.com" 
+  method="POST" 
+  enctype="multipart/form-data"
+>
+  <!-- Name -->
+  <label>Name:</label>
+  <input type="text" name="name" required /><br /><br />
+
+  <!-- Phone -->
+  <label>Phone:</label>
+  <input type="tel" name="phone" required /><br /><br />
+
+  <!-- File Upload -->
+  <label>Upload Prescription:</label>
+  <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.pdf" required /><br /><br />
+
+  <!-- Hidden fields (optional) -->
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_autoresponse" value="Thank you for uploading your prescription. Our team will contact you soon." />
+
+  <button type="submit">Submit</button>
+</form>

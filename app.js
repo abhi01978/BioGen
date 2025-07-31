@@ -460,6 +460,8 @@ app.get('/OurTeam', (req, res) => res.render('OurTeam'));
 app.get('/PartnerWithUs', (req, res) => res.render('PartnerWithUs'));
 app.get('/sign-in', (req, res) => res.render('sign-in'));
 app.get('/sign-up', (req, res) => res.render('sign-up'));
+app.get('/book', (req, res) => res.render('book'));
+
 
 // Health Package Page (public)
 app.get('/healthpackage', async (req, res) => {

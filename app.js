@@ -451,7 +451,7 @@ const isAuthenticated = (req, res, next) => {
 
 // Static Pages
 app.get('/', (req, res) => res.render('index'));
-app.get('/AboutBiogen.html', (req, res) => res.render('AboutBiogen.html'));
+app.get('/AboutBiogen', (req, res) => res.render('AboutBiogen'));
 app.get('/booktest', (req, res) => res.render('booktest'));
 app.get('/Career', (req, res) => res.render('Career'));
 app.get('/homecollection', (req, res) => res.render('homecollection'));

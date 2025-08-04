@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lal PathLabs Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- SwiperJS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="bg-white text-black">
+    
+      <header class="w-full bg-white shadow-md px-4 py-2">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-6 flex-wrap md:flex-nowrap">
+    <!-- Logo -->
+    <a href="/" class="w-24 h-12 relative hidden md:block">
+      <img src="./image/BioGen_Logo.png" alt="logo" class="absolute inset-0 w-80 h-20 object-contain" />
+    </a>
+
+    <!-- Divider -->
+    <div class="w-px h-10 bg-gray-300 hidden md:block"></div>
+
+    <!-- City Dropdown -->
+    <div class="flex items-center gap-2 w-full md:w-auto">
+      <div class="relative w-full max-w-xs">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <img src="/image/location.svg" alt="" class="w-18 h-18 object-contain" />
+        </div>
+        <select class="pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option selected disabled>Search City</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Kolkata">Kolkata</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="hidden md:flex items-center gap-2 ml-auto w-full max-w-xs">
+      <button class="text-gray-600 hover:text-black">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5C16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5L20.49 19l-5-5zM9.5 14C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+        </svg>
+      </button>
+      <input type="text" placeholder="Search For Lab Tests/Pac" class="border border-gray-300 rounded-md px-3 py-1 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+
+    <!-- Contact Icons -->
+    <div class="hidden md:flex items-center gap-3 ml-4">
+      <a href="tel:040-4444-2424" class="text-blue-600 hover:text-blue-800">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="m19.23 15.26-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98" />
+        </svg>
+      </a>
+      <a href="https://api.whatsapp.com/send/?phone=918978689444&text=HELLO&type=phone_number&app_absent=0" target="_blank" class="text-green-600 hover:text-green-800">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.969 9.969 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Home Collection -->
+    <div class="hidden md:flex items-center gap-3 ml-6">
+      <div class="flex flex-col">
+        <p class="text-sm font-medium text-gray-700">Home Collection</p>
+        <a href="tel:040-4444-2424" class="text-sm text-blue-600 hover:underline">+91-9711219956</a>
+      </div>
+    </div>
+  </div>
+</header>
+<header class="w-full shadow-md bg-white top-0 left-0 z-50 sticky">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    
+   
+    <!-- Left Section: Hamburger + Logo -->
+    <div class="flex items-center gap-4">
+      <!-- Hamburger Menu (mobile only) -->
+      <button id="menu-toggle-btn" class="text-gray-700 md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z" />
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="block w-32">
+        <img src="./image/BioGen_Logo.png" alt="BioGen Logo" class="w-full h-auto object-contain" />
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-5 text-sm font-medium text-gray-700">
+      <a href="./index.html" class="hover:text-blue-600">Home</a>
+
+      <select class="pl-2 pr-3 py-2 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>About Us</option>
+        <option value="./AboutBiogen.html">About Biogen</option>
+        <option value="./OurTeam.html">Our Team</option>
+        <option value="./Career.html">Career</option>
+        <option value="./PartnerWithUs.html">Partner With Us</option>
+      </select>
+
+      <a href="./healthpackeg.html" class="hover:text-blue-600">Health Packages</a>
+      <a href="#TestFacilities" class="hover:text-blue-600">Test Facilities</a>
+
+      <select class="pl-1 pr-3 py-2 text-sm w-32 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>Patients</option>
+        <option value="./booktest.html">Book A Test</option>
+        <option value="./test">Radiology Test Center</option>
+        <option value="./homecollection.html">Home Collection Query Form</option>
+        <option value="#">Offer And Announcements</option>
+        <option value="#">View Test Report</option>
+        <option value="./sign-up.html">Patients Sign Up</option>
+      </select>
+
+      <a href="./locateus.html" class="hover:text-blue-600">Locate Us</a>
+
+      <select class="pl-1 pr-3 py-2 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>Franchisee</option>
+        <option value="./sign-up.html">Sign Up</option>
+        <option value="./sign-in.html">Sign In</option>
+      </select>
+
+      <a href="https://patient-in.creliohealth.com/patient/login" class="flex items-center gap-1 hover:text-blue-600">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5z" />
+        </svg>
+        Download Report
+      </a>
+    </div>
+
+    <!-- User Icon -->
+    <div class="text-gray-700">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4" />
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-3/4 max-w-xs bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-lg overflow-y-auto md:hidden px-4 py-5 space-y-3 text-sm text-gray-700">
+    
+    <!-- Close Button -->
+    <div class="flex justify-end mb-4">
+      <button id="menu-close-btn" class="text-gray-600 hover:text-red-500 focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 101.41 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z" />
+        </svg>
+      </button>
+    </div>
+
+    <a href="./index.html" class="block hover:text-blue-600">Home</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>About Us</option>
+      <option value="./AboutBiogen.html">About Biogen</option>
+      <option value="./OurTeam.html">Our Team</option>
+      <option value="./Career.html">Career</option>
+      <option value="./PartnerWithUs.html">Partner With Us</option>
+    </select>
+
+    <a href="./healthpackeg.html" class="block hover:text-blue-600">Health Packages</a>
+    <a href="#TestFacilities" class="block hover:text-blue-600">Test Facilities</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>Patients</option>
+      <option value="./booktest.html">Book A Test</option>
+      <option value="./test">Radiology Test Center</option>
+      <option value="./homecollection.html">Home Collection Query Form</option>
+      <option value="#">Offer And Announcements</option>
+      <option value="#">View Test Report</option>
+      <option value="./sign-up.html">Patients Sign Up</option>
+    </select>
+
+    <a href="./locateus.html" class="block hover:text-blue-600">Locate Us</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>Franchisee</option>
+      <option value="./sign-up.html">Sign Up</option>
+      <option value="./sign-in.html">Sign In</option>
+    </select>
+
+    <a href="https://patient-in.creliohealth.com/patient/login" class="block flex items-center gap-1 hover:text-blue-600">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5z" />
+      </svg>
+      Download Report
+    </a>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menu-toggle-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("menu-close-btn");
+
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("-translate-x-full");
+      mobileMenu.classList.toggle("translate-x-0");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("-translate-x-full");
+      mobileMenu.classList.remove("translate-x-0");
+    });
+  });
+</script>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-cover bg-center h-[300px] md:h-[400px]"
+      style="
+        background-image: url('https://riberasalud.com/juan-cardona/wp-content/uploads/2024/07/laboratorioH.jpg');
+      "
+    >
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+      <!-- Content (Centered Text) -->
+      <div class="relative z-10 flex items-center justify-center h-full">
+        <h1 class="text-white text-3xl md:text-5xl font-bold">
+          Sign Up to Biogen Labs
+        </h1>
+      </div>
+    </section>
+    <br />
+    <center>
+      <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+          Create an Account
+        </h2>
+
+        <form action="#" method="POST" class="space-y-4">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <!-- Submit -->
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition duration-200"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <p class="mt-4 text-center text-sm text-gray-600">
+          Already have an account?
+          <a href="#" class="text-blue-600 hover:underline">Log in</a>
+        </p>
+      </div>
+    </center>
+    <br />
+
+    <!-- footer -->
+    <footer class="bg-[#04261C] text-white px-8 py-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Partner With Us -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">About Biogen Labs</h2>
+          <p class="text-sm mb-4">
+            BIOGEN is one of the fastest growing pioneer Diagnostics Company in
+            India mainly focussed in the smaller towns and cities of India with
+            the main aim of providing superior quality diagnostics services to
+            its customers all over India through a very efficient network of
+            labs and collection points.
+          </p>
+          <button
+            class="bg-white text-[#5a1c41] px-4 py-2 rounded font-semibold"
+          >
+            Know More
+          </button>
+          <p class="text-sm mt-6 font-semibold">
+            For bulk test bookings, Reach out to us at:
+          </p>
+          <p class="text-sm mt-1 flex items-center gap-2">
+            <a
+              href="mailto:customer.care@apollodiagnostics.in"
+              class="underline"
+              >info@biogenpathlab.com</a
+            >
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">QUICK LINKS</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./AboutBiogen.html">About Us</a></li>
+            <li>
+              <a href="./homecollection.html">Home Collection Query Form</a>
+            </li>
+            <li><a href="./Career.html">Careers</a></li>
+            <li><a href="./PartnerWithUs.html">Partner With US</a></li>
+            <li><a href="./booktest.html">view-test-report.aspx</a></li>
+          </ul>
+        </div>
+
+        <!-- About Us -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Important Links</h2>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="./AboutBiogen.html">Corporate Health Chech-Up Plan</a>
+            </li>
+            <li><a href="./homecollection.html">Term and Conditions</a></li>
+            <li><a href="./booktest.html">Book a Test</a></li>
+            <li><a href="./TestFacilities.html">All Tests</a></li>
+            <li><a href="./healthpackeg.html">Search For Labs</a></li>
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h2 class="text-2xl font-semibold mb-4">Contact Details</h2>
+          <br />
+          <ul class="space-y-2 text-sm">
+            <li>
+              <i class="fa-solid fa-location-dot color-white"></i
+              ><a href="#">
+                Shop# 19, Panchsheel Well-Bazar, Crossings Republik,
+                Ghaziabad</a
+              >
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-phone color-white"></i
+              ><a href="#"> +91 9711219956, +91 9319570520</a>
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-clock color-white"></i
+              ><a href="#"> 7:00 am - 9:00 pm</a>
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-envelope color-white"></i
+              ><a href="#"> info@biogenpathlab.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Language + Bottom Section -->
+      <div class="mt-10 text-right text-sm">
+        <select class="bg-white text-black rounded px-2 py-1">
+          <option>English</option>
+          <!-- Add more languages if needed -->
+        </select>
+      </div>
+    </footer>
+    <footer class="bg-[#0B3D2E] text-white text-sm">
+      <div
+        class="border-t border-gray-700 py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
+      >
+        <!-- Left Text -->
+        <div class="text-center md:text-left mb-3 md:mb-0">
+          <p>
+            Copyrights © 2018 All Rights Reserved, Designed By
+            <a href="#" class="text-blue-400 hover:underline">Zion Infosystem</a
+            >.
+          </p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+              alt="Facebook"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
+              alt="Twitter"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+              alt="Google+"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+              alt="LinkedIn"
+              class="w-4 h-4"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <script>
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+    </script>
+
+    <script>
+      document.onkeydown = function (e) {
+        if (e.keyCode == 123) return false; // F12
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0))
+          return false; // Ctrl+Shift+I
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0))
+          return false; // Ctrl+Shift+J
+        if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) return false; // Ctrl+U
+      };
+    </script> -->
+  </body>
+</html>

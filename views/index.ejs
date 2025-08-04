@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BioGen Diagnostic</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- SwiperJS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/images/icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+  .swiper {
+  height: auto !important;
+}
+
+</style>
+    
+  </head>
+
+  <body class="bg-white text-black">
+<header class=" hidden md:block  w-full bg-white shadow-md px-4 py-2">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap md:flex-nowrap">
+    
+    <!-- Left: Logo -->
+    <div class="hidden md:flex items-center gap-2">
+      <a href="/" class="w-24 h-12 relative">
+        <img src="./image/BioGen_Logo.png" alt="logo" class="absolute inset-0 w-80 h-20 object-contain" />
+      </a>
+    </div>
+
+    <!-- Right: Contact Info and Icons - Hidden on mobile -->
+    <div class="hidden md:flex items-center gap-6">
+      
+      <!-- Contact Icons -->
+      <div class="flex items-center gap-3">
+        <!-- Call Icon -->
+        <a href="tel:040-4444-2424" class="text-blue-600 hover:text-blue-800">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="m19.23 15.26-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98" />
+          </svg>
+        </a>
+        <!-- WhatsApp Icon -->
+        <a href="https://api.whatsapp.com/send/?phone=918978689444&text=HELLO&type=phone_number&app_absent=0" target="_blank" class="text-green-600 hover:text-green-800">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.969 9.969 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Home Collection Info -->
+      <div class="flex flex-col">
+        <p class="text-sm font-medium text-gray-700">Home Collection</p>
+        <a href="tel:040-4444-2424" class="text-sm text-blue-600 hover:underline">+91-9711219956</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="w-full shadow-md bg-white top-0 left-0 z-50 sticky">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    
+   
+    <!-- Left Section: Hamburger + Logo -->
+    <div class="flex items-center gap-4">
+      <!-- Hamburger Menu (mobile only) -->
+      <button id="menu-toggle-btn" class="text-gray-700 md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z" />
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="block w-32">
+        <img src="./image/BioGen_Logo.png" alt="BioGen Logo" class="w-full h-auto object-contain" />
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-5 text-sm font-medium text-gray-700">
+      <a href="./" class="hover:text-blue-600">Home</a>
+
+      <select class="pl-2 pr-3 py-2 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>About Us</option>
+        <option value="./AboutBiogen">About Biogen</option>
+        <option value="./OurTeam">Our Team</option>
+        <option value="./Career">Career</option>
+        <option value="./PartnerWithUs">Partner With Us</option>
+      </select>
+
+      <a href="./healthpackage" class="hover:text-blue-600">Health Packages</a>
+      <a href="/Corporate-health" class="hover:text-blue-600">Corporate Health Checkup</a>
+
+      <select class="pl-1 pr-3 py-2 text-sm w-32 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>Patients</option>
+        <option value="./booktest">Book A Test</option>
+        <option value="./Radiology">Radiology Test Center</option>
+        <option value="./homecollection">Home Collection Query Form</option>
+        <option value="#">Offer And Announcements</option>
+        <option value="#">View Test Report</option>
+        <option value="./sign-up">Patients Sign Up</option>
+      </select>
+
+      <a href="./locateus" class="hover:text-blue-600">Locate Us</a>
+
+      <select class="pl-1 pr-3 py-2 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>Franchisee</option>
+        <option value="./sign-up">Sign Up</option>
+        <option value="./sign-in">Sign In</option>
+      </select>
+
+      <a href="https://patient-in.creliohealth.com/patient/login" class="flex items-center gap-1 hover:text-blue-600">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5z" />
+        </svg>
+        Download Report
+      </a>
+    </div>
+
+    <!-- User Icon -->
+    <div class="text-gray-700">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4" />
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-3/4 max-w-xs bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-lg overflow-y-auto md:hidden px-4 py-5 space-y-3 text-sm text-gray-700">
+    
+    <!-- Close Button -->
+    <div class="flex justify-end mb-4">
+      <button id="menu-close-btn" class="text-gray-600 hover:text-red-500 focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 101.41 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z" />
+        </svg>
+      </button>
+    </div>
+
+    <a href="/" class="block hover:text-blue-600">Home</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>About Us</option>
+      <option value="./AboutBiogen">About Biogen</option>
+      <option value="./OurTeam">Our Team</option>
+      <option value="./Career">Career</option>
+      <option value="./PartnerWithUs">Partner With Us</option>
+    </select>
+
+    <a href="./healthpackage" class="block hover:text-blue-600">Health Packages</a>
+      <a href="/Corporate-health" class="hover:text-blue-600">Corporate Health Checkup</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>Patients</option>
+      <option value="./booktest">Book A Test</option>
+        <option value="./Radiology">Radiology Test Center</option>
+      <option value="./homecollection">Home Collection Query Form</option>
+      <!-- <option value="#">Offer And Announcements</option> -->
+      <option value="https://patient-in.creliohealth.com/patient/login">View Test Report</option>
+      <option value="./sign-up">Patients Sign Up</option>
+    </select>
+
+    <a href="./locateus" class="block hover:text-blue-600">Locate Us</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>Franchisee</option>
+      <option value="./sign-up">Sign Up</option>
+      <option value="./sign-in">Sign In</option>
+    </select> 
+    
+
+    <a href="https://patient-in.creliohealth.com/patient/login" class="block flex items-center gap-1 hover:text-blue-600">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5z" />
+      </svg>
+      Download Report
+    </a>
+    <br>
+    <% if (isAuthenticated) { %>
+    <a href="/dashboard" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition " style="margin: 10px;">
+      Dashboard
+    </a> 
+    <a href="/logout" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+      Logout
+    </a>
+  <% } else { %>
+    <a href="/login" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
+      Login
+    </a>
+  <% } %>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menu-toggle-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("menu-close-btn");
+
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("-translate-x-full");
+      mobileMenu.classList.toggle("translate-x-0");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("-translate-x-full");
+      mobileMenu.classList.remove("translate-x-0");
+    });
+  });
+</script>
+
+    <!-- Swiper Container -->
+    <div
+      class="relative w-full max-w-screen-xl mx-auto px-2"
+      style="padding-top: 3%"
+    >
+      <!-- Swiper Main -->
+      <div class="swiper mySwiper h-52">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+           <a href="#">
+    <img
+      src="https://www.firstlabdiagnostics.com/Heamatology.jpg"
+      alt="Fever Assessment Advance"
+      class="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-md"
+    />
+  </a>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://5.imimg.com/data5/FY/JI/TG/SELLER-17810911/diagnostic-laboratory.jpg"
+                alt="Franchise"
+                class="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-md"
+              />
+            </a>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <a
+              href=""
+            >
+              <img
+                src="https://aayush-hospitals.com/wp-content/uploads/2025/04/Diagnostic-Lab-in-Kalyan.jpg"
+                alt="CRL Launch"
+                class="w-full h-[300px] md:h-[500px] lg:h-[700px] object-cover rounded-md"
+              />
+            </a>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://drmallojwaradvanceortho.com/wp-content/uploads/sites/48/2024/08/42.jpg"
+                alt="Xpert Health"
+                class="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-md"
+              />
+            </a>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://isspllab.com/wp-content/uploads/2023/05/pexels-ivan-samkov-9628826-1024x683.jpg"
+                alt="Food Intolerance"
+                class="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-md"
+              />
+            </a>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://www.madgetech.com/wp-content/uploads/2019/09/Food-Laboratory-Testing-and-Techniques-1024x573.jpg"
+                alt="Pap Test"
+                class="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover rounded-md"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+   
+    <!-- SwiperJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Swiper Init -->
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <!-- Need Help Section -->
+    <section class="py-10 px-4">
+      <div class="max-w-screen-xl mx-auto rounded-xl bg-white p-6 shadow-md">
+        <!-- Section Heading -->
+        <h2 class="text-lg md:text-xl font-semibold text-gray-800 mb-6 px-2">
+          Need Help?
+        </h2>
+
+
+        <!-- Cards Wrapper -->
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <!-- 📦 Upload Prescription -->
+           <a
+            href="./upload-prescription.html"
+            class="flex items-center justify-between bg-gray-100 rounded-md p-4 hover:bg-gray-200 transition w-full md:w-[400px]"
+            style="border: 1px solid black"
+          >
+            <div class="flex gap-3">
+              <div class="w-10 h-10 relative">
+                <img
+                  src="/image/prescription.png"
+                  alt="Prescription"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">Have a Prescription?</p>
+                <p class="text-sm font-medium">Upload and book your tests</p>
+              </div>
+            </div>
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a> 
+
+
+
+
+
+
+          <!-- 📞 Call Us -->
+          <a
+            href="tel:+919711219956"
+            class="flex items-center justify-between bg-gray-100 rounded-md p-4 hover:bg-gray-200 transition w-full md:w-[400px]"
+            style="border: 1px solid black"
+          >
+            <div class="flex gap-3">
+              <div class="w-10 h-10 relative">
+                <img
+                  src="/image/feature3.png"
+                  alt="Call Us"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">Call us to book your tests</p>
+                <p class="text-sm font-medium">
+                  Our team of experts will guide you
+                </p>
+              </div>
+            </div>
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+
+          <!-- 💬 WhatsApp Booking -->
+          <a
+  href="https://wa.me/9711219956?text=welcome%20to%20Biogen%20Diagnostics"
+  target="_blank"
+  class="flex items-center justify-between bg-gray-100 rounded-md p-4 hover:bg-gray-200 transition w-full md:w-[400px]"
+  style="border: 1px solid black"
+>
+            <div class="flex gap-3">
+              <div class="w-10 h-10 relative">
+                <img
+                  src="/image/whatsapp.png"
+                  alt="WhatsApp"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">WhatsApp Booking</p>
+                <p class="text-sm font-medium">
+                  Text us on WhatsApp to book a test
+                </p>
+              </div>
+            </div>
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="w-[95%] mx-auto flex justify-between items-center flex-wrap gap-4"
+    >
+      <!-- Left: Heading -->
+      <div>
+        <h2 class="text-4xl font-bold text-gray-800">Recommended Packages</h2>
+      </div>
+
+     <a href="./healthpackage"> <button
+        class="border border-blue-600 text-blue-600 hover:bg-blue-50 transition px-8 py-3 rounded-md text-lg font-semibold w-48 h-34"
+      >
+        View All
+      </button></a>
+    </div>
+
+    <div class="swiper mSwiper mt-6">
+      <div class="swiper-wrapper">
+        <!-- Card 1 -->
+        <div class="swiper-slide">
+          <div
+            class="card bg-white rounded-xl shadow-lg p-4 w-full max-w-xs mx-auto"
+            style="border: 1px solid rgba(243, 77, 193, 0.247)"
+          >
+            <div class="flex justify-between items-start">
+              <!-- Image -->
+              <div class="w-12 h-12 flex-shrink-0">
+                <img
+                  src="/image/defaultPackageIcon.png"
+                  alt="icon"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <!-- Safe Badge -->
+              <div
+                class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"
+                  />
+                </svg>
+                <span>SAFE</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-8 space-y-1 text-sm">
+              <h3 class="font-semibold text-gray-800 text-base">
+                Ayurvriddha Plan
+              </h3>
+              <p
+                class="text-gray-600 bg-pink-400 text-black text-center rounded-full py-1 px-3"
+                style="border-radius: 20px"
+              >
+                Home Collection Available
+              </p>
+              <p class="text-gray-600">
+                Report delivery -
+                <span class="text-blue-600">Sample daily by 11:00 AM. Report Same day</span>
+              </p>
+              <p>Fasting state required</p>
+              <p>82 Pharmeter(s)Cover</p>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-3 flex items-center gap-3">
+              <p class="text-lg font-bold text-gray-800">₹2099</p>
+              <p class="line-through text-gray-400">₹2265</p>
+              <p class="text-green-600 text-sm font-medium">5% off</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-2">
+              <a
+                href="/package-details/hyderabad/xpert-health-basic"
+                class="flex-1"
+              >
+                <!-- <button
+                  class="w-full border border-blue-600 text-blue-600 py-1 rounded-md text-sm hover:bg-blue-50 transition"
+                >
+                  View Details
+                </button> -->
+              </a>
+             <a href="/book"> <button
+                class="flex-1 bg-blue-600 text-white py-1 rounded-md text-sm hover:bg-blue-700 transition" style="width: 150px;"
+              >
+                Book Now
+              </button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide">
+          <div
+            class="card bg-white rounded-xl shadow-lg p-4 w-full max-w-xs mx-auto"
+            style="border: 1px solid rgba(243, 77, 193, 0.247)"
+          >
+            <div class="flex justify-between items-start">
+              <!-- Image -->
+              <div class="w-12 h-12 flex-shrink-0">
+                <img
+                  src="/image/defaultPackageIcon.png"
+                  alt="icon"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <!-- Safe Badge -->
+              <div
+                class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"
+                  />
+                </svg>
+                <span>SAFE</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-8 space-y-1 text-sm">
+              <h3 class="font-semibold text-gray-800 text-base">
+                Sampoorna Swasthya - Basic
+              </h3>
+              <p
+                class="text-gray-600 bg-pink-400 text-black text-center rounded-full py-1 px-3"
+                style="border-radius: 20px"
+              >
+                Home Collection Available
+              </p>
+              <p class="text-gray-600">
+                Report delivery -
+                <span class="text-blue-600">Sample daily by 11:00 AM. Report Same day</span>
+              </p>
+              <p>Fasting state required</p>
+              <p>73 Pharmeter(s)Cover</p>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-3 flex items-center gap-3">
+              <p class="text-lg font-bold text-gray-800">₹999</p>
+              <p class="line-through text-gray-400">₹2000</p>
+              <p class="text-green-600 text-sm font-medium">5% off</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-2">
+              <a
+                href="/package-details/hyderabad/xpert-health-comprehensive"
+                class="flex-1"
+              >
+                <!-- <button
+                  class="w-full border border-blue-600 text-blue-600 py-1 rounded-md text-sm hover:bg-blue-50 transition"
+                >
+                  View Details
+                </button> -->
+              </a>
+              <a href="/book"> <button
+                class="flex-1 bg-blue-600 text-white py-1 rounded-md text-sm hover:bg-blue-700 transition" style="width: 150px;"
+              >
+                Book Now
+              </button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide">
+          <div
+            class="card bg-white rounded-xl shadow-lg p-4 w-full max-w-xs mx-auto"
+            style="border: 1px solid rgba(243, 77, 193, 0.247)"
+          >
+            <div class="flex justify-between items-start">
+              <!-- Image -->
+              <div class="w-12 h-12 flex-shrink-0">
+                <img
+                  src="/image/defaultPackageIcon.png"
+                  alt="icon"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <!-- Safe Badge -->
+              <div
+                class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"
+                  />
+                </svg>
+                <span>SAFE</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-8 space-y-1 text-sm">
+              <h3 class="font-semibold text-gray-800 text-base">
+                Sampoorna Swasthya - Essential
+              </h3>
+              <p
+                class="text-gray-600 bg-pink-400 text-black text-center rounded-full py-1 px-3"
+                style="border-radius: 20px"
+              >
+                Home Collection Available
+              </p>
+              <p class="text-gray-600">
+                Report delivery -
+                <span class="text-blue-600">Sample daily by 11:00 AM. Report Same day</span>
+              </p>
+              <p>Fasting state required</p>
+              <p>77 Pharmeter(s)Cover</p>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-3 flex items-center gap-3">
+              <p class="text-lg font-bold text-gray-800">₹1499</p>
+              <p class="line-through text-gray-400">₹3999</p>
+              <p class="text-green-600 text-sm font-medium">5% off</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-2">
+              <a
+                href="/package-details/hyderabad/xpert-health-master-check"
+                class="flex-1"
+              >
+                <!-- <button
+                  class="w-full border border-blue-600 text-blue-600 py-1 rounded-md text-sm hover:bg-blue-50 transition"
+                >
+                  View Details
+                </button> -->
+              </a>
+              <a href="/book"> <button
+                class="flex-1 bg-blue-600 text-white py-1 rounded-md text-sm hover:bg-blue-700 transition" style="width: 150px;"
+              >
+                Book Now
+              </button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swiper-slide">
+          <div
+            class="card bg-white rounded-xl shadow-lg p-4 w-full max-w-xs mx-auto"
+            style="border: 1px solid rgba(243, 77, 193, 0.247)"
+          >
+            <div class="flex justify-between items-start">
+              <!-- Image -->
+              <div class="w-12 h-12 flex-shrink-0">
+                <img
+                  src="/image/defaultPackageIcon.png"
+                  alt="icon"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <!-- Safe Badge -->
+              <div
+                class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"
+                  />
+                </svg>
+                <span>SAFE</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-8 space-y-1 text-sm">
+              <h3 class="font-semibold text-gray-800 text-base">
+                Comprehensive-Fever Profile
+              </h3>
+              <p
+                class="text-gray-600 bg-pink-400 text-black text-center rounded-full py-1 px-3"
+                style="border-radius: 20px"
+              >
+                Home Collection Available
+              </p>
+              <p class="text-gray-600">
+                Report delivery -
+                <span class="text-blue-600">Sample daily by 4:00 PM. Report Same day</span>
+              </p>
+              <p>Fasting state required</p>
+              <p>47 Pharmeter(s)Cover</p>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-3 flex items-center gap-3">
+              <p class="text-lg font-bold text-gray-800">₹1499</p>
+              <p class="line-through text-gray-400">₹2999</p>
+              <p class="text-green-600 text-sm font-medium">5% off</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-2">
+              <a
+                href="/package-details/hyderabad/xpert-health-senior-citizen-female"
+                class="flex-1"
+              >
+                <!-- <button
+                  class="w-full border border-blue-600 text-blue-600 py-1 rounded-md text-sm hover:bg-blue-50 transition"
+                >
+                  View Details
+                </button> -->
+              </a>
+            <a href="/book"> <button
+                class="flex-1 bg-blue-600 text-white py-1 rounded-md text-sm hover:bg-blue-700 transition" style="width: 150px;"
+              >
+                Book Now
+              </button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="swiper-slide">
+          <div
+            class="card bg-white rounded-xl shadow-lg p-4 w-full max-w-xs mx-auto"
+            style="border: 1px solid rgba(243, 77, 193, 0.247)"
+          >
+            <div class="flex justify-between items-start">
+              <!-- Image -->
+              <div class="w-12 h-12 flex-shrink-0">
+                <img
+                  src="/image/defaultPackageIcon.png"
+                  alt="icon"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <!-- Safe Badge -->
+              <div
+                class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"
+                  />
+                </svg>
+                <span>SAFE</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-8 space-y-1 text-sm">
+              <h3 class="font-semibold text-gray-800 text-base">
+                Fever Profile-Advance
+              </h3>
+              <p
+                class="text-gray-600 bg-pink-400 text-black text-center rounded-full py-1 px-3"
+                style="border-radius: 20px"
+              >
+                Home Collection Available
+              </p>
+              <p class="text-gray-600">
+                Report delivery -
+                <span class="text-blue-600">Sample daily by 4:00 PM. Report Same day</span>
+              </p>
+              <p>Fasting state required</p>
+              <p>47 Pharmeter(s)Cover</p>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-3 flex items-center gap-3">
+              <p class="text-lg font-bold text-gray-800">₹999</p>
+              <p class="line-through text-gray-400">₹2000</p>
+              <p class="text-green-600 text-sm font-medium">5% off</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-2">
+              <a
+                href="/package-details/hyderabad/xpert-health-senior-citizen-male"
+                class="flex-1"
+              >
+                <!-- <button
+                  class="w-full border border-blue-600 text-blue-600 py-1 rounded-md text-sm hover:bg-blue-50 transition"
+                >
+                  View Details
+                </button> -->
+              </a>
+              <a href="/book"> <button
+                class="flex-1 bg-blue-600 text-white py-1 rounded-md text-sm hover:bg-blue-700 transition" style="width: 150px;"
+              >
+                Book Now
+              </button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="swiper-slide">
+          <div
+            class="card bg-white rounded-xl shadow-lg p-4 w-full max-w-xs mx-auto"
+            style="border: 1px solid rgba(243, 77, 193, 0.247)"
+          >
+            <div class="flex justify-between items-start">
+              <!-- Image -->
+              <div class="w-12 h-12 flex-shrink-0">
+                <img
+                  src="/image/defaultPackageIcon.png"
+                  alt="icon"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <!-- Safe Badge -->
+              <div
+                class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium"
+              >
+                <svg
+                  class="w-4 h-4 text-green-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"
+                  />
+                </svg>
+                <span>SAFE</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-8 space-y-1 text-sm">
+              <h3 class="font-semibold text-gray-800 text-base">
+                Manashvini-PCOD Advance
+              </h3>
+              <p
+                class="text-gray-600 bg-pink-400 text-black text-center rounded-full py-1 px-3"
+                style="border-radius: 20px"
+              >
+                Home Collection Available
+              </p>
+              <p class="text-gray-600">
+                Report delivery -
+                <span class="text-blue-600">Sample daily by 11:00 AM. Report Same day</span>
+              </p>
+              <p>Fasting state required</p>
+              <p>10 Pharmeter(s)Cover</p>
+            </div>
+
+            <!-- Price -->
+            <div class="mt-3 flex items-center gap-3">
+              <p class="text-lg font-bold text-gray-800">₹3000</p>
+              <p class="line-through text-gray-400">₹7000</p>
+              <p class="text-green-600 text-sm font-medium">5% off</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-2">
+              <a
+                href="/package-details/hyderabad/xpert-health-premium"
+                class="flex-1"
+              >
+                <!-- <button
+                  class="w-full border border-blue-600 text-blue-600 py-1 rounded-md text-sm hover:bg-blue-50 transition"
+                >
+                  View Details
+                </button> -->
+              </a>
+              <a href="/book"> <button
+                class="flex-1 bg-blue-600 text-white py-1 rounded-md text-sm hover:bg-blue-700 transition" style="width: 150px;"
+              >
+                Book Now
+              </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swiper navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+      let reverse = false;
+
+      const mSwiper = new Swiper(".mSwiper", {
+        spaceBetween: 20,
+        loop: false,
+        slidesPerGroup: 1,
+        speed: 600,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+        },
+      });
+
+      setInterval(() => {
+        if (!reverse) {
+          if (mSwiper.isEnd) {
+            reverse = true;
+          } else {
+            mSwiper.slideNext();
+          }
+        } else {
+          if (mSwiper.isBeginning) {
+            reverse = false;
+          } else {
+            mSwiper.slidePrev();
+          }
+        }
+      }, 3000);
+    </script>
+
+    <div class="max-w-[95%] mx-auto py-8">
+      <!-- Heading -->
+      <div class="mb-8">
+        <h3
+          class="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-1"
+        >
+          PACKAGES
+        </h3>
+        <h2 class="text-4xl font-extrabold text-gray-900">
+          Lifestyle Packages
+        </h2>
+      </div>
+
+      <!-- Packages Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Single Package Card -->
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Diabetes"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Diabetes1 6.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Ayurvriddha
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Cardiovascular Diseases"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Cardiovascular Disease-1 9.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              mpoorna Swasthya - Basic
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Hypertension"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Hypertension12.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Sampoorna Swasthya - Essential
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Gut Health"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Gut Health 2 2 7.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Comprehensive-Fever
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Bone Health"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Bone health-6.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Fever Profile Advance
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Alcohol"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Alcohol-1 4.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Manasvini-PCOD Advance
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Cancer"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Cancer-new2.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Bone care Panel
+            </h3>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="group block bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <div class="relative w-full pb-[100%]">
+            <img
+              alt="Depression"
+              src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Depression-new5.png"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-40 group-hover:opacity-60 transition"
+            ></div>
+          </div>
+          <div class="p-4 text-center">
+            <h3
+              class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition"
+            >
+              Comprehensive Thyroid Care
+            </h3>
+          </div>
+        </a>
+      </div>
+
+      <!-- View All Button -->
+      <!-- <div class="mt-10 text-center">
+        <a href="/lifestyle-packages" class="inline-block">
+          <button
+            class="inline-flex items-center gap-2 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition px-10 py-4 rounded-md text-lg font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+          >
+            View All
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </a>
+      </div> -->
+    </div>
+
+<a href="#" class="block relative overflow-hidden h-[200px] sm:h-[280px] md:h-[340px] lg:h-[400px] xl:h-[480px]">
+  <img
+    alt="Home page Advertisement Banner"
+    loading="lazy"
+    src="https://www.parikshanlab.com/img/slider/silde-3.jpg"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+</a>
+
+
+
+    <div class="max-w-7xl mx-auto px-4 py-10">
+      <!-- Headings -->
+      <div class="mb-12 text-center">
+        <h2 class="text-sm text-blue-600 font-semibold uppercase tracking-wide">
+          PACKAGES
+        </h2>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+          Personalized Health Checkup
+        </h1>
+      </div>
+
+      <!-- MEN'S HEALTH -->
+      <section class="mb-16">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-gray-800">MEN'S HEALTH</h2>
+          <!-- <a href="/mens-health">
+            <button
+              class="border border-blue-600 text-blue-600 px-5 py-2.5 rounded hover:bg-blue-600 hover:text-white transition"
+            >
+              View All
+            </button>
+          </a> -->
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Card -->
+          <a
+            href="#"
+            class="group block text-center"
+          >
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Under%2030%20years%2068.png"
+                alt="Under 30"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Under 30 years
+            </p>
+          </a>
+
+          <a href="#" class="group block text-center">
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Age%2030-45%20years%206.png"
+                alt="30-45"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Age 30-45
+            </p>
+          </a>
+
+          <a href="#" class="group block text-center">
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Age 45-60 years 9.png"
+                alt="45-60"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Age 45-60
+            </p>
+          </a>
+
+          <a
+            href="#"
+            class="group block text-center"
+          >
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Above 60 years 10.png"
+                alt="Above 60"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Above 60 years
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <!-- WOMEN'S HEALTH -->
+      <section>
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-gray-800">WOMEN'S HEALTH</h2>
+          <!-- <a href="/womens-health">
+            <button
+              class="border border-blue-600 text-blue-600 px-5 py-2.5 rounded hover:bg-blue-600 hover:text-white transition"
+            >
+              View All
+            </button>
+          </a> -->
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Card -->
+          <a
+            href="#"
+            class="group block text-center"
+          >
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Under 30 years 10.png"
+                alt="Under 30"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Under 30 years
+            </p>
+          </a>
+
+          <a href="#" class="group block text-center">
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Age 30-45 years 8.png"
+                alt="30-45"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Age 30-45
+            </p>
+          </a>
+
+          <a href="#" class="group block text-center">
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Age 45-60 years 10.png"
+                alt="45-60"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Age 45-60
+            </p>
+          </a>
+
+          <a
+            href="#"
+            class="group block text-center"
+          >
+            <div
+              class="w-full h-52 md:h-72 relative overflow-hidden rounded-lg bg-white"
+            >
+              <img
+                src="https://frontend.apollodiagnostics.in/images/home/popularcategories/Above 60 years 7.png"
+                alt="Above 60"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <p
+              class="mt-4 text-base md:text-lg font-medium text-gray-800 group-hover:text-blue-600 transition"
+            >
+              Above 60 years
+            </p>
+          </a>
+        </div>
+      </section>
+    </div>
+    <!-- clients says -->
+    <section class="max-w-7xl mx-auto px-4 py-20">
+      <h2 class="text-4xl font-bold text-center mb-14 text-blue-800">
+        What Our Patients Say
+      </h2>
+
+      <!-- Slider Container -->
+      <div class="relative">
+        <!-- Testimonial Cards Wrapper -->
+        <div
+          id="testimonialSlider"
+          class="flex overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory space-x-6"
+        >
+          <!-- Loop: Card -->
+          <!-- Card 1 -->
+          <div
+            class="min-w-[85%] md:min-w-[50%] lg:min-w-[33%] snap-center bg-white/80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl border border-blue-100 hover:scale-105 transition-transform"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/1.jpg"
+                class="w-14 h-14 rounded-full border-2 border-blue-600"
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg text-blue-800">
+                  Dr. Sneha Gupta
+                </h4>
+                <p class="text-sm text-gray-500">Health Checkup</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              “Extremely professional and hygienic lab. My reports were accurate
+              and delivered on time. Highly recommended!”
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="min-w-[85%] md:min-w-[50%] lg:min-w-[33%] snap-center bg-white/80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl border border-blue-100 hover:scale-105 transition-transform"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                class="w-14 h-14 rounded-full border-2 border-blue-600"
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg text-blue-800">Rahul Mehta</h4>
+                <p class="text-sm text-gray-500">Blood Test</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              “Hassle-free booking and courteous staff. Got my reports digitally
+              within hours.”
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="min-w-[85%] md:min-w-[50%] lg:min-w-[33%] snap-center bg-white/80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl border border-blue-100 hover:scale-105 transition-transform"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/22.jpg"
+                class="w-14 h-14 rounded-full border-2 border-blue-600"
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg text-blue-800">
+                  Priya Sharma
+                </h4>
+                <p class="text-sm text-gray-500">Full Body Check</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              “Loved the clean and advanced setup. Got detailed reports faster
+              than expected.”
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="min-w-[85%] md:min-w-[50%] lg:min-w-[33%] snap-center bg-white/80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl border border-blue-100 hover:scale-105 transition-transform"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/56.jpg"
+                class="w-14 h-14 rounded-full border-2 border-blue-600"
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg text-blue-800">Amit Verma</h4>
+                <p class="text-sm text-gray-500">COVID Test</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              “Quick RT-PCR and digital delivery made my travel plans smooth.
+              Staff was professional.”
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="min-w-[85%] md:min-w-[50%] lg:min-w-[33%] snap-center bg-white/80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl border border-blue-100 hover:scale-105 transition-transform"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/45.jpg"
+                class="w-14 h-14 rounded-full border-2 border-blue-600"
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg text-blue-800">
+                  Neha Kulkarni
+                </h4>
+                <p class="text-sm text-gray-500">Pregnancy Panel</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              “I visited during pregnancy and found their care, privacy, and
+              accuracy excellent.”
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="min-w-[85%] md:min-w-[50%] lg:min-w-[33%] snap-center bg-white/80 backdrop-blur-lg p-6 rounded-3xl shadow-2xl border border-blue-100 hover:scale-105 transition-transform"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/85.jpg"
+                class="w-14 h-14 rounded-full border-2 border-blue-600"
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-lg text-blue-800">Mohit Jain</h4>
+                <p class="text-sm text-gray-500">Thyroid Profile</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              “Their tech-enabled system makes everything seamless. Highly
+              impressed!”
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-center mt-8 gap-6">
+          <button
+            onclick="scrollLeft()"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow"
+          >
+            ←
+          </button>
+          <button
+            onclick="scrollRight()"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow"
+          >
+            →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- organs -->
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="mb-8">
+        <div class="mb-2">
+          <h2 class="text-3xl font-semibold">TEST</h2>
+        </div>
+        <h2 class="text-3xl font-semibold">Tests by Body Organs</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <a
+          href="#"
+          class="flex flex-col items-center gap-4 no-underline"
+        >
+          <div class="w-40 h-40 relative">
+            <!-- 160px x 160px -->
+            <img
+              src="https://frontend.apollodiagnostics.in/images/home/conditions/Group 68 (8).png"
+              alt="Heart"
+              class="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h6 class="text-lg font-semibold text-gray-900">Heart</h6>
+        </a>
+
+        <a
+          href="#"
+          class="flex flex-col items-center gap-4 no-underline"
+        >
+          <div class="w-40 h-40 relative">
+            <img
+              src="https://frontend.apollodiagnostics.in/images/home/conditions/Group 68 (10).png"
+              alt="Thyroid"
+              class="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h6 class="text-lg font-semibold text-gray-900">Thyroid</h6>
+        </a>
+
+        <a
+          href="#"
+          class="flex flex-col items-center gap-4 no-underline"
+        >
+          <div class="w-40 h-40 relative">
+            <img
+              src="https://frontend.apollodiagnostics.in/images/home/conditions/Group 68 (7).png"
+              alt="Liver"
+              class="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h6 class="text-lg font-semibold text-gray-900">Liver</h6>
+        </a>
+
+        <a
+          href="#"
+          class="flex flex-col items-center gap-4 no-underline"
+        >
+          <div class="w-40 h-40 relative">
+            <img
+              src="https://frontend.apollodiagnostics.in/images/home/conditions/Group 68 (11).png"
+              alt="Lungs"
+              class="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h6 class="text-lg font-semibold text-gray-900">Lungs</h6>
+        </a>
+
+        <a
+          href="#"
+          class="flex flex-col items-center gap-4 no-underline"
+        >
+          <div class="w-40 h-40 relative">
+            <img
+              src="https://frontend.apollodiagnostics.in/images/home/conditions/Frame 68 (1).png"
+              alt="Infertility"
+              class="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h6 class="text-lg font-semibold text-gray-900">Infertility</h6>
+        </a>
+
+        <a
+          href="#"
+          class="flex flex-col items-center gap-4 no-underline"
+        >
+          <div class="w-40 h-40 relative">
+            <img
+              src="https://frontend.apollodiagnostics.in/images/home/conditions/Group 68 (9).png"
+              alt="Kidney"
+              class="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h6 class="text-lg font-semibold text-gray-900">Kidney</h6>
+        </a>
+      </div>
+
+      <!-- <div class="mt-6">
+        <a href="/test-booking" class="inline-block">
+          <button
+            type="button"
+            class="px-6 py-2 border border-blue-600 text-blue-600 font-semibold rounded hover:bg-blue-50 transition"
+          >
+            View all
+          </button>
+        </a>
+      </div> -->
+    </div>
+    <!-- Container -->
+    <section
+  class="py-20 mt-8"
+  style="
+    background-image: url('https://img.freepik.com/premium-photo/abstract-paper-pattern-red-background-with-line-lines-drawn-by-person_684636-8219.jpg?w=360');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  "
+>
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Heading -->
+    <h2 class="text-4xl font-bold text-center text-white mb-4">
+      Why Choose <span class="text-pink-600">Biogen Labs Diagnostics?</span>
+    </h2>
+    <p class="text-center text-white mb-12 text-lg">
+      Trusted by millions for quality, accuracy, and care.
+    </p>
+
+    <!-- Top Row: 3 Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center place-items-center mb-8">
+      <div class="rounded-xl shadow-lg p-8 hover:shadow-2xl transition w-full max-w-sm bg-white/20 backdrop-blur-sm">
+        <div class="text-white text-5xl font-bold mb-2">10+ Lakh </div>
+        <p class="text-white font-medium">
+        High quality diagnostic test every year</p>
+      </div>
+      <div class="rounded-xl shadow-lg p-8 hover:shadow-2xl transition w-full max-w-sm bg-white/20 backdrop-blur-sm">
+        <div class="text-white text-5xl font-bold mb-2">2+ Lakh</div>
+        <p class="text-white font-medium"> 
+Total Number of Customers</p>
+      </div>
+      <div class="rounded-xl shadow-lg p-8 hover:shadow-2xl transition w-full max-w-sm bg-white/20 backdrop-blur-sm">
+        <div class="text-white text-5xl font-bold mb-2">99%</div>
+        <p class="text-white font-medium"> 
+Customer satisfaction rate Sample Collection within 30 Minutes Fast Reporting</p>
+      </div>
+    </div>
+
+    <!-- Bottom Row: 2 Cards Centered -->
+    <div class="flex justify-center gap-8 flex-wrap text-center">
+      <div class="rounded-xl shadow-lg p-8 hover:shadow-2xl transition w-full max-w-sm bg-white/20 backdrop-blur-sm">
+        <div class="text-white text-5xl font-bold mb-2">140+</div>
+        <p class="text-white font-medium">Total No. of Labs</p>
+      </div>
+      <div class="rounded-xl shadow-lg p-8 hover:shadow-2xl transition w-full max-w-sm bg-white/20 backdrop-blur-sm">
+        <div class="text-white text-5xl font-bold mb-2">500+</div>
+        <p class="text-white font-medium">Collection Centers Nationwide</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <br />
+    <center>
+      <section id="TestFacilities" class="py-20 bg-gray-50 px-4">
+      <div class="max-w-7xl w-full" >
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+          Our Facilities
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl border-t-4 border-blue-400"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <svg
+                class="w-12 h-12 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6l4 2"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">
+              HOME SAMPLE COLLECTION
+            </h3>
+            <p class="text-gray-600 text-center">
+              Get your samples collected within the convenience of your home, at
+              a time that suits you and easy payment options.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl border-t-4 border-green-400"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <svg
+                class="w-12 h-12 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">
+              Online Reports
+            </h3>
+            <p class="text-gray-600 text-center">
+              View reports online and download them for future reference. Saves
+              your time and energy!
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white rounded-xl shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl border-t-4 border-teal-400"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <svg
+                class="w-12 h-12 text-teal-500"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">
+              Certifications and Accreditations of Biogen Labs.
+            </h3>
+            <p class="text-gray-600 text-center"></p>
+          </div>
+        </div>
+      </div>
+    </center>
+    </section>
+    <br />
+
+
+
+    <!-- footer -->
+    <footer class="bg-[#04261C] text-white px-8 py-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Partner With Us -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">About Biogen Labs</h2>
+          <p class="text-sm mb-4">
+            BIOGEN is one of the fastest growing pioneer Diagnostics Company in
+            India mainly focussed in the smaller towns and cities of India with
+            the main aim of providing superior quality diagnostics services to
+            its customers all over India through a very efficient network of
+            labs and collection points.
+          </p>
+          <button
+            class="bg-white text-[#5a1c41] px-4 py-2 rounded font-semibold"
+          >
+            Know More
+          </button>
+          <p class="text-sm mt-6 font-semibold">
+            For bulk test bookings, Reach out to us at:
+          </p>
+          <p class="text-sm mt-1 flex items-center gap-2">
+            <a
+              href="mailto:customer.care@apollodiagnostics.in"
+              class="underline"
+              >info@biogenpathlab.com</a
+            >
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">QUICK LINKS</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/">Home</a></li>
+            <li><a href="/AboutBiogen">About Us</a></li>
+            <li>
+              <a href="/homecollection">Home Collection Query Form</a>
+            </li>
+            <li><a href="/Career">Careers</a></li>
+            <li><a href="/PartnerWithUs">Partner With US</a></li>
+            <!-- <li><a href="/booktest">view-test-report.aspx</a></li> -->
+          </ul>
+        </div>
+
+        <!-- About Us -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Important Links</h2>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="./Corporate-health">Corporate Health Chech-Up Plan</a>
+            </li>
+            <!-- <li><a href="">Term and Conditions</a></li> -->
+            <li><a href="/booktest">Book a Test</a></li>
+            <li><a href="/booktest">All Tests</a></li>
+            <!-- <li><a href="/health">Search For Labs</a></li> -->
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h2 class="text-2xl font-semibold mb-4">Contact Details</h2>
+          <br />
+          <ul class="space-y-2 text-sm">
+            <li>
+              <i class="fa-solid fa-location-dot color-white"></i
+              ><a href="#">
+                Shop# 19, Panchsheel Well-Bazar, Crossings Republik,
+                Ghaziabad</a
+              >
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-phone color-white"></i
+              ><a href="#"> +91 9711219956, +91 9319570520</a>
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-clock color-white"></i
+              ><a href="#"> 7:00 am - 9:00 pm</a>
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-envelope color-white"></i
+              ><a href="#"> info@biogenpathlab.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Language + Bottom Section -->
+      <div class="mt-10 text-right text-sm">
+        <select class="bg-white text-black rounded px-2 py-1">
+          <option>English</option>
+          <!-- Add more languages if needed -->
+        </select>
+      </div>
+    </footer>
+    <footer class="bg-[#0B3D2E] text-white text-sm">
+      <div
+        class="border-t border-gray-700 py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
+      >
+        <!-- Left Text -->
+        <div class="text-center md:text-left mb-3 md:mb-0">
+          <p>
+            Copyrights © 2025 All Rights Reserved, Designed By
+            <a href="#" class="text-blue-400 hover:underline">Abishek Full stack developer</a
+            >.
+          </p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <a href="#" class="bg-gray-800 hover:bg-gray-800 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+              alt="Facebook"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
+              alt="Twitter"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+              alt="Google+"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+              alt="LinkedIn"
+              class="w-4 h-4"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const slider = document.getElementById("testimonialSlider");
+      const cards = slider.querySelectorAll("div.snap-center");
+      let index = 0;
+
+      function scrollRight() {
+        index++;
+        if (index >= cards.length) index = 0;
+        slider.scrollTo({
+          left: cards[index].offsetLeft - slider.offsetLeft,
+          behavior: "smooth",
+        });
+      }
+
+      function scrollLeft() {
+        index--;
+        if (index < 0) index = cards.length - 1;
+        slider.scrollTo({
+          left: cards[index].offsetLeft - slider.offsetLeft,
+          behavior: "smooth",
+        });
+      }
+    </script>
+    <script>
+      const toggleButton = document.getElementById("dropdownToggle");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      toggleButton.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("show");
+      });
+
+      // Close dropdown if clicked outside
+      window.addEventListener("click", function (e) {
+        if (
+          !toggleButton.contains(e.target) &&
+          !dropdownMenu.contains(e.target)
+        ) {
+          dropdownMenu.classList.remove("show");
+        }
+      });
+    </script>
+    <!-- ✅ Bottom Navbar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full bg-white shadow-md border-t border-gray-200 z-50 md:hidden">
+  <div class="flex justify-between items-center text-center text-sm text-gray-700">
+    
+    <!-- Home -->
+    <a href="./" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      Home
+    </a>
+
+    <!-- Book Test -->
+    <a href="./booktest" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+      </svg>
+      Book
+    </a>
+
+    <!-- Packages -->
+    <a href="./healthpackage" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 6H4v12h16V6zm0-2c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h16z"/>
+      </svg>
+      Packages
+    </a>
+
+    <!-- Call -->
+    <a href="tel:+919711219956" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="m19.23 15.26-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98"/>
+      </svg>
+      Call
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://api.whatsapp.com/send/?phone=919711219956&text=HELLO&type=phone_number&app_absent=0" target="_blank" class="flex-1 py-2 flex flex-col items-center hover:text-green-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88"/>
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+    <!-- <script>
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+    </script>
+
+    <script>
+      document.onkeydown = function (e) {
+        if (e.keyCode == 123) return false; // F12
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0))
+          return false; // Ctrl+Shift+I
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0))
+          return false; // Ctrl+Shift+J
+        if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) return false; // Ctrl+U
+      };
+    </script> -->
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('✅ Service Worker Registered'))
+        .catch(err => console.error('❌ SW Error:', err));
+    }
+  </script>
+  </body>
+</html>

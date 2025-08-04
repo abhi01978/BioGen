@@ -1,0 +1,3385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Pagination</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 ">
+  <header class=" hidden md:block  w-full bg-white shadow-md px-4 py-2">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap md:flex-nowrap">
+    
+    <!-- Left: Logo -->
+    <div class="hidden md:flex items-center gap-2">
+      <a href="/" class="w-24 h-12 relative">
+        <img src="./image/BioGen_Logo.png" alt="logo" class="absolute inset-0 w-80 h-20 object-contain" />
+      </a>
+    </div>
+
+    <!-- Right: Contact Info and Icons - Hidden on mobile -->
+    <div class="hidden md:flex items-center gap-6">
+      
+      <!-- Contact Icons -->
+      <div class="flex items-center gap-3">
+        <!-- Call Icon -->
+        <a href="tel:040-4444-2424" class="text-blue-600 hover:text-blue-800">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="m19.23 15.26-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98" />
+          </svg>
+        </a>
+        <!-- WhatsApp Icon -->
+        <a href="https://api.whatsapp.com/send/?phone=918978689444&text=HELLO&type=phone_number&app_absent=0" target="_blank" class="text-green-600 hover:text-green-800">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.969 9.969 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Home Collection Info -->
+      <div class="flex flex-col">
+        <p class="text-sm font-medium text-gray-700">Home Collection</p>
+        <a href="tel:040-4444-2424" class="text-sm text-blue-600 hover:underline">+91-9711219956</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="w-full shadow-md bg-white top-0 left-0 z-50 sticky">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    
+   
+    <!-- Left Section: Hamburger + Logo -->
+    <div class="flex items-center gap-4">
+      <!-- Hamburger Menu (mobile only) -->
+      <button id="menu-toggle-btn" class="text-gray-700 md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z" />
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="block w-32">
+        <img src="./image/BioGen_Logo.png" alt="BioGen Logo" class="w-full h-auto object-contain" />
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-5 text-sm font-medium text-gray-700">
+      <a href="./" class="hover:text-blue-600">Home</a>
+
+      <select class="pl-2 pr-3 py-2 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>About Us</option>
+        <option value="./AboutBiogen">About Biogen</option>
+        <option value="./OurTeam">Our Team</option>
+        <option value="./Career">Career</option>
+        <option value="./PartnerWithUs">Partner With Us</option>
+      </select>
+
+      <a href="./healthpackage" class="hover:text-blue-600">Health Packages</a>
+      <a href="/Corporate-health" class="hover:text-blue-600">Corporate Health Checkup</a>
+
+      <select class="pl-1 pr-3 py-2 text-sm w-32 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>Patients</option>
+        <option value="./booktest">Book A Test</option>
+        <option value="./Radiology">Radiology Test Center</option>
+        <option value="./homecollection">Home Collection Query Form</option>
+        <option value="#">Offer And Announcements</option>
+        <option value="#">View Test Report</option>
+        <option value="./sign-up">Patients Sign Up</option>
+      </select>
+
+      <a href="./locateus" class="hover:text-blue-600">Locate Us</a>
+
+      <select class="pl-1 pr-3 py-2 text-sm w-28 focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="location = this.value;">
+        <option selected disabled>Franchisee</option>
+        <option value="./sign-up">Sign Up</option>
+        <option value="./sign-in">Sign In</option>
+      </select>
+
+      <a href="https://patient-in.creliohealth.com/patient/login" class="flex items-center gap-1 hover:text-blue-600">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5z" />
+        </svg>
+        Download Report
+      </a>
+    </div>
+
+    <!-- User Icon -->
+    <div class="text-gray-700">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4" />
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-3/4 max-w-xs bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-lg overflow-y-auto md:hidden px-4 py-5 space-y-3 text-sm text-gray-700">
+    
+    <!-- Close Button -->
+    <div class="flex justify-end mb-4">
+      <button id="menu-close-btn" class="text-gray-600 hover:text-red-500 focus:outline-none">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 101.41 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z" />
+        </svg>
+      </button>
+    </div>
+
+    <a href="/" class="block hover:text-blue-600">Home</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>About Us</option>
+      <option value="./AboutBiogen">About Biogen</option>
+      <option value="./OurTeam">Our Team</option>
+      <option value="./Career">Career</option>
+      <option value="./PartnerWithUs">Partner With Us</option>
+    </select>
+
+    <a href="./healthpackage" class="block hover:text-blue-600">Health Packages</a>
+      <a href="/Corporate-health" class="hover:text-blue-600">Corporate Health Checkup</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>Patients</option>
+      <option value="./booktest">Book A Test</option>
+        <option value="./Radiology">Radiology Test Center</option>
+      <option value="./homecollection">Home Collection Query Form</option>
+      <!-- <option value="#">Offer And Announcements</option> -->
+      <option value="https://patient-in.creliohealth.com/patient/login">View Test Report</option>
+      <option value="./sign-up">Patients Sign Up</option>
+    </select>
+
+    <a href="./locateus" class="block hover:text-blue-600">Locate Us</a>
+
+    <select onchange="location = this.value;" class="block w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+      <option selected disabled>Franchisee</option>
+      <option value="./sign-up">Sign Up</option>
+      <option value="./sign-in">Sign In</option>
+    </select> 
+    
+
+    <a href="https://patient-in.creliohealth.com/patient/login" class="block flex items-center gap-1 hover:text-blue-600">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5z" />
+      </svg>
+      Download Report
+    </a>
+    <br>
+    <% if (isAuthenticated) { %>
+    <a href="/dashboard" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition " style="margin: 10px;">
+      Dashboard
+    </a> 
+    <a href="/logout" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+      Logout
+    </a>
+  <% } else { %>
+    <a href="/login" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
+      Login
+    </a>
+  <% } %>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menu-toggle-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("menu-close-btn");
+
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("-translate-x-full");
+      mobileMenu.classList.toggle("translate-x-0");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("-translate-x-full");
+      mobileMenu.classList.remove("translate-x-0");
+    });
+  });
+</script>
+
+<section
+      class="relative w-full h-[400px] bg-cover bg-center bg-no-repeat"
+      style="
+        background-image: url('https://cdn.expresshealthcare.in/wp-content/uploads/2021/05/31174620/Lab-test.jpg');
+      "
+    >
+      <!-- Overlay for better contrast -->
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      <!-- Centered Text -->
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center"
+      >
+        <p class="text-4xl md:text-5xl font-bold text-white">Book A Test</p>
+        <p class="mt-4 text-2xl md:text-lg text-gray-200 max-w-2xl">
+          <!-- Affordable pricing, high-quality diagnostics, and the most accurate
+          results – all at the lowest price. -->
+        </p>
+      </div>
+    </section>
+    <!-- Container -->
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- 🔍 Search input -->
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Search tests..."
+    class="w-full p-3 my-6 rounded border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
+  />
+  
+      <!-- Card container -->
+      <div
+        id="card-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-6"
+      ></div>
+
+      <!-- Pagination -->
+      <div
+        id="pagination-container"
+        class="flex justify-center mt-10 space-x-2"
+      ></div>
+    </div>
+<br>
+<br>
+    <script>
+      // STEP 1: Your 6 sample tests (add 407 total like this)
+      const testData = [
+         {
+          title: "24 HOUR URINE CATECHOLAMINE & VMA",
+          price: "₹5300",
+          oldPrice: "",
+          params: "B001",
+          delivery: "Sample Daily by 2:30 PM. Report next day",
+        },
+        {
+          title: "24 Hrs Urinary CALCIUM",
+          price: "₹140",
+          oldPrice: "",
+          params: "B003",
+          delivery: "Sample Daily by 2:30 PM. Report next day",
+        },
+        {
+          title: "24 HRS. URINE,METANEPHRINE",
+          price: "₹2400",
+          oldPrice: "",
+          params: "B004",
+          delivery: "Sample Daily by 2:30 PM. Report next day",
+        },
+        {
+          title: "ABSOLUTE BASOPHILL COUNT",
+          price: "₹90",
+          oldPrice: "",
+          params: "B005",
+          delivery: "Sample Daily by 4:00 PM. same day",
+        },
+        {
+          title: "ABSOLUTE EOSINOPHILL COUNT",
+          price: "₹90",
+          oldPrice: "",
+          params: "B006",
+          delivery: "Sample Daily by 4:00 PM. Report same day",
+        },
+        {
+          title: "ABSOLUTE LYMPHOCYTE COUNT",
+          price: "₹90",
+          oldPrice: "",
+          params: "B007",
+          delivery: "Sample Daily by 4:00 PM. Report same day",
+        },
+
+        {
+          title: "ABSOLUTE NEUTROPHIL COUNT",
+          price: "₹90",
+          oldPrice: "",
+          params: "B009",
+          delivery: "Sample Daily by 4:00 PM. Report same  day",
+        },
+        {
+          title: "Acid Fast Bacilli Stain(Z N Stain)",
+          price: "₹250",
+          oldPrice: "",
+          params: "B021",
+          delivery: "Sample Daily by 2:30 PM. Report same day",
+        },
+        {
+          title: "ACID PHOSPHATASE TOTAL",
+          price: "₹110",
+          oldPrice: "",
+          params: "B010",
+          delivery: "Sample Daily by 4:00 PM. Report same day",
+        },
+        {
+          title: "ACID PHOSPHATASE, PROSTATIC",
+          price: "₹700",
+          oldPrice: "",
+          params: "B011",
+          delivery: "Sample Daily by 4:00 PM. Report same day",
+        },
+        {
+          title: "ACTH (Adrenocorticotropic hormone)",
+          price: "₹1050",
+          oldPrice: "",
+          params: "B012",
+          delivery: "Sample Daily by 2:30 PM. Report next day",
+        },
+        {
+          title: "ADA (Adenosine deaminase)",
+          price: "₹760",
+          oldPrice: "",
+          params: "B012",
+          delivery: "Sample Daily by 2:30 PM. Report same day",
+        },
+
+        {
+          title: "ADA, FLUID",
+          price: "₹760",
+          oldPrice: "",
+          params: "B014",
+          delivery: "Sample Daily by 2:30 PM. Report Same day.",
+        },
+        {
+          title: "AFB CULTURE (RAPID)",
+          price: "₹1000",
+          oldPrice: "",
+          params: "B015",
+          delivery: "Sample Daily by 2:30 PM. Report in 44 days.",
+        },
+        // 14 CARD 1 end
+        {
+          title:
+            "AFB DRUG SUSCEPTIBILITY ( 3 DRUGS ) Inclusion:- Specimen, Organism, ISONIAZID, RIFAMPICIN, PYRAZINAMIDE <br> <p>Pure Growth</p>",
+          price: "₹3750",
+          oldPrice: "",
+          params: "B348",
+          delivery: "Report in 16-17 days",
+        },
+        {
+          title:
+            "AFB DRUG SUSCEPTIBILITY ( 5 DRUGS ) Inclusion:- Specimen, Organism, STREPTOMYCIN, ISONIAZID, RIFAMPICIN, PYRAZINAMIDE, ETHAMBUTOL<br> <p>Pure Growth</p>",
+          price: "₹4850",
+          oldPrice: "",
+          params: "B349",
+          delivery: "Report in 16-17 days",
+        },
+
+        {
+          title: "ALBERTS STAIN FOR DIPTHERIA",
+          price: "₹450",
+          oldPrice: "",
+          params: "B350",
+          delivery: "Sample Daily by 2:30 pm: Report next  day .",
+        },
+
+        {
+          title: "ALBUMIN, FLUID",
+          price: "₹110",
+          oldPrice: "",
+          params: "B022",
+          delivery: "Sample Daily by 4:00 pm: report same  day .",
+        },
+        {
+          title: "ALCOHOL SCREEN , BLOOD",
+          price: "₹1550",
+          oldPrice: "",
+          params: "B023",
+          delivery: "Sample Daily by 2:30 pm: report same  day .",
+        },
+
+        {
+          title: "ALCOHOL SCREEN ,RANDOM URINE",
+          price: "₹1550",
+          oldPrice: "",
+          params: "B351",
+          delivery: "Sample Daily by 4:00 pm: report same  day .",
+        },
+        {
+          title: "ALDEHYDE TEST",
+          price: "₹650",
+          oldPrice: "",
+          params: "B136",
+          delivery: "Sample Daily by 4:00 pm: Report same  day .",
+        },
+        {
+          title: "ALDOLASE",
+          price: "₹1050",
+          oldPrice: "",
+          params: "B352",
+          delivery: "Sample Daily by 4:00 pm: Report same  day .",
+        },
+        {
+          title: "ALDOSTERONE LEVEL",
+          price: "₹1950",
+          oldPrice: "",
+          params: "B024",
+          delivery: "Sample Daily by 4:00 pm: Report same  day .",
+        },
+        {
+          title: "ALDOSTERONE, 24 HOUR URINE",
+          price: "₹1800",
+          oldPrice: "",
+          params: "B353",
+          delivery: "Sample Daily by 4:00 pm: Report next  day .",
+        },
+
+        {
+          title: "Alkaline Phospate (ALP)",
+          price: "₹120",
+          oldPrice: "",
+          params: "B025",
+          delivery: "Sample Daily by 4:00 pm: Report same  day .",
+        },
+        {
+          title: "ALLERGY INDIVIDUAL, PHADIAPOP",
+          price: "₹1600",
+          oldPrice: "",
+          params: "B354",
+          delivery: "Sample Daily by 4:00 pm: Report next  day .",
+        },
+        {
+          title: "ALLERGY SCREEN ,ADULT",
+          price: "₹6900",
+          oldPrice: "",
+          params: "B026",
+          delivery: "Sample Daily by 4:00 pm: Report 3-5 days.",
+        },
+        {
+          title: "ALLERGY SCREEN,PEDIATRIC",
+          price: "₹6900",
+          oldPrice: "",
+          params: "B027",
+          delivery: "Sample Daily by 4:00 pm: Report 3-5 days.",
+        },
+        // 14 CRAD 2 END
+        {
+          title: "ALPHA FETO PROTEIN (AFP)",
+          price: "₹6900",
+          oldPrice: "",
+          params: "B028",
+          delivery: "Sample Daily by 4:00 pm: Report same day.",
+        },
+
+        {
+          title: "AMA (anti-mitochondrial antibody)",
+          price: "₹1700",
+          oldPrice: "",
+          params: "B029",
+          delivery: "Sample Daily by 4:00 pm: Report same day.",
+        },
+        {
+          title: "AMMONIA, BLOOD",
+          price: "₹575",
+          oldPrice: "",
+          params: "B355",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "AMOEBIC SEROLOGY (Entamoeba Histolytica IgG Antibo",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B030",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "AMYLASE, SERUM",
+          price: "₹350",
+          oldPrice: "",
+          params: "B031",
+          delivery: "Sample Daily by 11:00 am. Report same day.",
+        },
+        {
+          title: "ANA BY ELISA",
+          price: "₹800",
+          oldPrice: "",
+          params: "B032",
+          delivery: "Sample Daily by 4:00. pm. Report same day.",
+        },
+        {
+          title: "ANA BY IFA",
+          price: "₹1050",
+          oldPrice: "",
+          params: "B033",
+          delivery: "Sample Daily by 4:00 pm. Report 3-5 days.",
+        },
+        {
+          title: "ANA LIA",
+          price: "₹1375",
+          oldPrice: "",
+          params: "B356",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANGIOTENSIN CONVERTING ENZYME (ACE)",
+          price: "₹1080",
+          oldPrice: "",
+          params: "B035",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI CARDIOLIPIN AB IGA",
+          price: "₹650",
+          oldPrice: "",
+          params: "B036",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI CARDIOLIPIN AB IGA , IGG & IGM",
+          price: "₹1650",
+          oldPrice: "",
+          params: "B037",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI CARDIOLIPIN ANTIBODY IGG SERUM",
+          price: "₹800",
+          oldPrice: "",
+          params: "B038",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+
+        {
+          title: "ANTI CARDIOLIPIN ANTIBODY IGM SERUM",
+          price: "₹800",
+          oldPrice: "",
+          params: "B039",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI CCP",
+          price: "₹1400",
+          oldPrice: "",
+          params: "B040",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        // 14 CARD 3 END
+        {
+          title: "ANTI DS DNA ANTIBODIES BY IFA",
+          price: "₹1250",
+          oldPrice: "",
+          params: "B041",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI DS DNA ANTIBODIES BY LIA",
+          price: "₹1700",
+          oldPrice: "",
+          params: "B042",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI ECHINOCOCCUS ANTIBODY,IGG (HYDATID SEROLOGY)",
+          price: "₹950",
+          oldPrice: "",
+          params: "B043",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI ENDOMYSIAL ANTIBODY, IGA IFA",
+          price: "₹1750",
+          oldPrice: "",
+          params: "B044",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI GBM ANTIBODY , IFA",
+          price: "₹2250",
+          oldPrice: "",
+          params: "B045",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI GBM ANTIBODY , LIA",
+          price: "₹2500",
+          oldPrice: "",
+          params: "B045",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI GLADIN ANTIBODY (IGA)",
+          price: "₹1850",
+          oldPrice: "",
+          params: "B047",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI GLADIN ANTIBODY (IGG)",
+          price: "₹1850",
+          oldPrice: "",
+          params: "B048",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI GLIADIN AB( IGA,IGG)",
+          price: "₹3600",
+          oldPrice: "",
+          params: "B049",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI HBE AB",
+          price: "₹800",
+          oldPrice: "",
+          params: "B050",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+
+        {
+          title: "ANTI HBS AB TITRE",
+          price: "₹550",
+          oldPrice: "",
+          params: "B051",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI HCV",
+          price: "₹600",
+          oldPrice: "",
+          params: "B052",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "ANTI ISLET CELL ANTIBODY",
+          price: "₹2150",
+          oldPrice: "",
+          params: "B357",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI LKM,IFA",
+          price: "₹200",
+          oldPrice: "",
+          params: "B053",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        // 4 CARD END
+        {
+          title: "ANTI MULLERIAN HORMONE",
+          price: "₹1600",
+          oldPrice: "",
+          params: "B054",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+       
+        {
+          title: "ANTI PHOSPHOLIPID AB IGA",
+          price: "₹850",
+          oldPrice: "",
+          params: "B055",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI PHOSPHOLIPID AB IGG",
+          price: "₹850",
+          oldPrice: "",
+          params: "B056",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI PHOSPHOLIPID AB IGM",
+          price: "₹850",
+          oldPrice: "",
+          params: "B057",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI PHOSPHOLIPID ANTI BODY PANEL-IGA,IGG & IGM",
+          price: "₹2400",
+          oldPrice: "",
+          params: "B058",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI PLATELET ANTIBODY",
+          price: "₹5500",
+          oldPrice: "",
+          params: "B059",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI Ro ANTIBODY",
+          price: "₹1750",
+          oldPrice: "",
+          params: "B060",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI SMOOTH MUSCLES ANTIBODY",
+          price: "₹1950",
+          oldPrice: "",
+          params: "B061",
+          delivery: "Sample Daily by 4:00 pm. Report next day.",
+        },
+        {
+          title: "ANTI SPERM ANTI BODY (ELISA)",
+          price: "₹900",
+          oldPrice: "",
+          params: "B061",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI THROMBIN III FUNCTIONAL",
+          price: "₹3500",
+          oldPrice: "",
+          params: "B063",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI THYROGLOBULIN AB",
+          price: "₹1150",
+          oldPrice: "",
+          params: "B064",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ANTI TPO AB",
+          price: "₹990",
+          oldPrice: "",
+          params: "B065",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "APLA",
+          price: "₹1150",
+          oldPrice: "",
+          params: "B509",
+          delivery: "Sample Daily by 11:00 am. Report in two days.",
+        },
+        {
+          title: "APIT",
+          price: "₹400",
+          oldPrice: "",
+          params: "B066",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ASCA IGA",
+          price: "₹2300",
+          oldPrice: "",
+          params: "B068",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ASCA IGA/IGG",
+          price: "₹4600",
+          oldPrice: "",
+          params: "B069",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+
+        {
+          title: "ASCA IGG",
+          price: "₹2550",
+          oldPrice: "",
+          params: "B070",
+          delivery: "Sample Daily by 4:00 pm. Report same day.",
+        },
+        {
+          title: "ASO TITRE(QUALITATIVE)",
+          price: "₹360",
+          oldPrice: "",
+          params: "B071",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "ASPERGILLUS ANTIBODY(IGG&IGM)",
+          price: "₹4000",
+          oldPrice: "",
+          params: "B072",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "ASPERGILLUS ANTIBODY, IGG SERUM",
+          price: "₹2100",
+          oldPrice: "",
+          params: "B073",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "ASPERGILLUS ANTIBODY, IGM SERUM",
+          price: "₹2100",
+          oldPrice: "",
+          params: "B074",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "ASPERGILLUS FUMIGATUS, IGE",
+          price: "₹2100",
+          oldPrice: "",
+          params: "B075",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BCR-ABL TRANSLOCATION RTPCR",
+          price: "₹4950",
+          oldPrice: "",
+          params: "B076",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BENCE JONES PROTEIN",
+          price: "₹750",
+          oldPrice: "",
+          params: "B077",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "BETA 2 GLYCO PROTEINS IGG",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B078",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BETA 2 GLYCO PROTEINS IGM",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B079",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BETA HCG",
+          price: "₹600",
+          oldPrice: "",
+          params: "B080",
+          delivery: "Sample Daily by 2:30pm Report same day.",
+        },
+        {
+          title: "BICARBONATE (CARBON DIOXIDE) -Hco3",
+          price: "₹850",
+          oldPrice: "",
+          params: "B506",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BILE PIGMENT",
+          price: "₹110",
+          oldPrice: "",
+          params: "B081",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BILE SALT",
+          price: "₹110",
+          oldPrice: "",
+          params: "B082",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BILIRUBIN TOTAL, DIRECT & INDIRECT",
+          price: "₹180",
+          oldPrice: "",
+          params: "B084",
+          delivery: "Sample Daily by 11:00am Report same day.",
+        },
+        {
+          title: "BILIRUBIN, DIRECT",
+          price: "₹110",
+          oldPrice: "",
+          params: "B083",
+          delivery: "Sample Daily by 11:00am Report same day.",
+        },
+        {
+          title: "BILLIRUBIN INDIRECT",
+          price: "₹110",
+          oldPrice: "",
+          params: "B085",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BIOPSY -HPE RADICAL SURGERY SPECIMEN",
+          price: "₹2100",
+          oldPrice: "",
+          params: "B088",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "BIOPSY- HPE LARGE",
+          price: "₹1350",
+          oldPrice: "",
+          params: "B086",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "BIOPSY- HPE MEDIUM",
+          price: "₹1050",
+          oldPrice: "",
+          params: "B087",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "BIOPSY-HPE SMALL",
+          price: "₹850",
+          oldPrice: "",
+          params: "B089",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "BLEEDING TIME",
+          price: "₹90",
+          oldPrice: "",
+          params: "B090",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "Blood bags culture",
+          price: "₹700",
+          oldPrice: "",
+          params: "B358",
+          delivery: "Sample Daily by 4:00pm Report 3-5 day.",
+        },
+        {
+          title: "BLOOD GROUP ABO & Rh TYPING (FORWARD & REVERSE GROUPING)",
+          price: "₹110",
+          oldPrice: "",
+          params: "B091",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BLOOD SUGAR , GLUCOMETER",
+          price: "₹50",
+          oldPrice: "",
+          params: "B092",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BLOOD SUGAR FASTING, PLASMA",
+          price: "₹50",
+          oldPrice: "",
+          params: "B093",
+          delivery: "Sample Daily by 11:00am Report same day.",
+        },
+        {
+          title: "BLOOD SUGAR PP, PLASMA <br> 2 Hours after meal",
+          price: "₹50",
+          oldPrice: "",
+          params: "B094",
+          delivery: "Sample Daily by 1:00pm Report same day.",
+        },
+        {
+          title: "BLOOD SUGAR RANDOM , PLASMA",
+          price: "₹50",
+          oldPrice: "",
+          params: "B095",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BLOOD UREA NITROGEN, SERUM (BUN)",
+          price: "₹110",
+          oldPrice: "",
+          params: "B096",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BLOOD UREA,SERUM",
+          price: "₹110",
+          oldPrice: "",
+          params: "B097",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BNP , B TYPE NATRIURETIC PEPTIDE",
+          price: "₹2300",
+          oldPrice: "",
+          params: "B098",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BONE MARROW ASPIRATION",
+          price: "₹1520",
+          oldPrice: "",
+          params: "B99",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Bone Marrow Biopsy",
+          price: "₹3000",
+          oldPrice: "",
+          params: "B359",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "BONE MARROW EXAMINATION (Including CBC)",
+          price: "₹990",
+          oldPrice: "",
+          params: "B100",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "BRUCELLA ANTIBODY IGG",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B101",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "BRUCELLA ANTIBODY IGM",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B102",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+
+        {
+          title: "BRUCELLA SEROLOGY",
+          price: "₹2200",
+          oldPrice: "",
+          params: "B103",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "C DIFFICILE TOXIN ASSAY A& B",
+          price: "₹2300",
+          oldPrice: "",
+          params: "B104",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "C Peptide",
+          price: "₹950",
+          oldPrice: "",
+          params: "B105",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "C-ANCA , ELISA",
+          price: "₹875",
+          oldPrice: "",
+          params: "B113",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "C-ANCA , LIA",
+          price: "₹1550",
+          oldPrice: "",
+          params: "B114",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "C-REACTIVE PROTEIN, HIGH SENSITIVE",
+          price: "₹470",
+          oldPrice: "",
+          params: "B506",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "C-Reactive Protien (CRP)",
+          price: "₹350",
+          oldPrice: "",
+          params: "B140",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "C3",
+          price: "₹750",
+          oldPrice: "",
+          params: "B106",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "C4",
+          price: "₹750",
+          oldPrice: "",
+          params: "B107",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CA 125",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B108",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CA 15.3",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B109",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CA 19.9",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B110",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CALCITONIN",
+          price: "₹2300",
+          oldPrice: "",
+          params: "B111",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+
+        {
+          title: "CALCIUM, SERUM",
+          price: "₹120",
+          oldPrice: "",
+          params: "B112",
+          delivery: "Sample Daily by 11:00am Report same day.",
+        },
+        {
+          title: "CARBAMAZEPINE DRUG ASSAY",
+          price: "₹800",
+          oldPrice: "",
+          params: "B115",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CARCINO EMBRYONIC ANTIGEN -CEA",
+          price: "₹780",
+          oldPrice: "",
+          params: "B116",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CARDIAC TROPONIN I(Quantitative)",
+          price: "₹1800",
+          oldPrice: "",
+          params: "B503",
+          delivery: "Sample Daily by 2:30pm Report same day.",
+        },
+        // 10
+        {
+          title: "CARDIAC TROPONIN T",
+          price: "₹1500",
+          oldPrice: "",
+          params: "B504",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CBC",
+          price: "₹250",
+          oldPrice: "",
+          params: "B118",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CD 8",
+          price: "₹1820",
+          oldPrice: "",
+          params: "B119",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CD-4",
+          price: "₹1800",
+          oldPrice: "",
+          params: "B120",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CERULOPLASMIN",
+          price: "₹1100",
+          oldPrice: "",
+          params: "B121",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CHICKUNGUNYA PCR",
+          price: "₹6050",
+          oldPrice: "",
+          params: "B122",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CHICKUNGUNYA VIRUS ANTIBODY , IgM",
+          price: "₹900",
+          oldPrice: "",
+          params: "B123",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CHLAMYDIA TRACHOMATIS IgM",
+          price: "₹1400",
+          oldPrice: "",
+          params: "B361",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CHLORIDE, SERUM",
+          price: "₹140",
+          oldPrice: "",
+          params: "B124",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CHOLESTEROL, SERUM",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B125",
+          delivery: "Sample Daily by 11:00pm Report same day.",
+        },
+        {
+          title: "CHROMOSOME ANALYSIS,BLOOD KARYOTYPE BLOOD",
+          price: "Rs.3600",
+          oldPrice: "",
+          params: "B126",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "CHROMOSOME ANALYSIS,PRODUCT OF CONCEPTION",
+          price: "Rs.6500",
+          oldPrice: "",
+          params: "B127",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Clot Retraction Test (CRT)",
+          price: "Rs.170",
+          oldPrice: "",
+          params: "B362",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CLOTTING TIME",
+          price: "Rs.1",
+          oldPrice: "",
+          params: "B128",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CMV IgG",
+          price: "Rs.270",
+          oldPrice: "B129",
+          params: "",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CMV IgG",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B130",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "COOMBS TEST , DIRECT",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B131",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "COOMBS TEST , INDIRECT",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B132",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+
+        {
+          title: "COPPER SERUM (ATONIC ABSORTION)",
+          price: "Rs.1500",
+          oldPrice: "",
+          params: "B133",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+
+        {
+          title: "CORTISOL EVENING SAMPLE",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B134",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CORTISOL MORNING SAMPLE",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B135",
+          delivery: "Sample Daily by 11:00pm Report same day.",
+        },
+        {
+          title: "Covid Antibodies IgG",
+          price: "Rs.800",
+          oldPrice: "",
+          params: "B987",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CPK, SERUM",
+          price: "Rs.370",
+          oldPrice: "",
+          params: "B137",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CPK-MB, SERUM",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B138",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CREATININE CLEARANCE TEST -URINE 24 HRS",
+          price: "Rs.380",
+          oldPrice: "",
+          params: "B141",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CREATININE with EGFR",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B142",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CREATININE; 24 HOURS URINE",
+          price: "Rs.180",
+          oldPrice: "",
+          params: "B143",
+          delivery: "Sample Daily by 4:00pm Report same day.",
+        },
+        {
+          title: "CULTURE - BLOOD",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B144",
+          delivery: "Sample Daily by 4:00pm Report 3-7 days.",
+        },
+
+        {
+          title: "CULTURE - CVP TIP",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B145",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+
+        {
+          title: "CULTURE - EAR SWAB PYOGENIC",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B146",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - FOLEY CATHETER TIP",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B147",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - FUNGUS",
+          price: "Rs.990",
+          oldPrice: "",
+          params: "B148",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - HIGH VAGINAL SWAB",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B149",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - OTHERS",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B150",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - PERIPHERAL CATHETER TIP",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B151",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - PUS PYOGENIC",
+          price: "Rs.1100",
+          oldPrice: "",
+          params: "B152",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - PYOGENIC",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B153",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - SPUTUM",
+          price: "Rs.650",
+          oldPrice: "",
+          params: "B154",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+
+        {
+          title: "CULTURE - STOOL",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B155",
+          delivery: "Sample Daily by 2:30 pm Report 2-3 days.",
+        },
+
+        {
+          title: "CULTURE - SYNOVIAL FLUID",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B156",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - THROAT SWAB",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B157",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - URETHERAL DISCHARGE",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B158",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE - URINE PYOGENIC 450",
+          price: "Rs.375",
+          oldPrice: "",
+          params: "B159",
+          delivery: "Sample Daily by 4:00pm Report 3-5 days.",
+        },
+        {
+          title: "CULTURE -BODY FLUID",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B160",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "CULTURE -NASAL SWAB",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B161",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "CULTURE- SEMEN",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B363",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "CYTOLOGY",
+          price: "Rs.300",
+          oldPrice: "",
+          params: "B162",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "D-DIMER",
+          price: "Rs.1200",
+          oldPrice: "",
+          params: "B163",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "DENGUE DUO (IgG , IgM & NS1 Ag) , ICT",
+          price: "Rs.1250",
+          oldPrice: "",
+          params: "B164",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "DENGUE DUO (IgG , IgM & NS1 Ag), ELISA",
+          price: "Rs.2200",
+          oldPrice: "",
+          params: "B165",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE IgG , ELISA",
+          price: "Rs.800",
+          oldPrice: "",
+          params: "B166",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE IgG , ICT",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B167",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE IgM , ELISA",
+          price: "Rs.800",
+          oldPrice: "",
+          params: "B168",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE IgM, ICT",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B169",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE NS1 Ag , ELISA",
+          price: "Rs.800",
+          oldPrice: "",
+          params: "B170",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE NS1 Ag , ICT",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B171",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DENGUE SEROLOGY (IgG & IgM), ELISA",
+          price: "Rs.1650",
+          oldPrice: "",
+          params: "B172",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "DENGUE SEROLOGY (IgG & IgM), ICT",
+          price: "Rs.950",
+          oldPrice: "",
+          params: "B173",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "DHEA-S",
+          price: "Rs.850",
+          oldPrice: "",
+          params: "B174",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "DIFFERENTIAL LEUCOCYTE COUNT",
+          price: "Rs.90",
+          oldPrice: "",
+          params: "B175",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Doctor Deepa Kar Consultation",
+          price: "Rs.400",
+          oldPrice: "",
+          params: "B.Sc, M.B.B.S, DPC, FCGP, M.Phil(HHSM)",
+          delivery: "Mon to Sat. 11am to 1pm",
+        },
+        {
+          title: "Doctor P C Singh Consultation",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "MD(Med.)",
+          delivery: "Available All Days",
+        },
+        {
+          title: "DYSMORPHIC URINE RBC",
+          price: "Rs.420",
+          oldPrice: "",
+          params: "B511",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "ELECTROLYTES(NA,K, CL), SERUM",
+          price: "Rs.330",
+          oldPrice: "",
+          params: "B176",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "EPSTEIN - BARR VIRUS AB TO VIRAL CAPSID AG(VCA) IGG & IGM",
+          price: "Rs.3000",
+          oldPrice: "",
+          params: "B177",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "ERYTHROPOIETIN LEVEL",
+          price: "Rs.1800",
+          oldPrice: "",
+          params: "B178",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "ESR",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B179",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "ESTRADIOL (E2)",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B180",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "FERRITIN",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B181",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FILARIA, ANTIGEN",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B507",
+          delivery: "Sample in Midnight, Report next day.",
+        },
+        {
+          title: "FLUID BIOCHEMISTRY MISC(SUGAR+PROTEIN)",
+          price: "Rs.260",
+          oldPrice: "",
+          params: "B182",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FLUID EXAMINATION -TLC , DLC & CYTOLOGY",
+          price: "Rs.200",
+          oldPrice: "",
+          params: "B183",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FNAC",
+          price: "Rs.1200",
+          oldPrice: "",
+          params: "B184",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FOLATE",
+          price: "Rs.1050",
+          oldPrice: "",
+          params: "B185",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FSH",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B186",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FT3",
+          price: "Rs.270",
+          oldPrice: "",
+          params: "B187",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "FT4",
+          price: "Rs.270",
+          oldPrice: "",
+          params: "B188",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "FUNGUS SMEAR",
+          price: "Rs.180",
+          oldPrice: "",
+          params: "B189",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "G6PD",
+          price: "Rs.650",
+          oldPrice: "",
+          params: "B190",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GAD ANTIBODY",
+          price: "Rs.5990",
+          oldPrice: "",
+          params: "B364",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GAMA GT, SERUM (GGT)",
+          price: "Rs.230",
+          oldPrice: "",
+          params: "B191",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GCT",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B192",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GENERAL BLOOD PICTURE (PS)",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B193",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GENEXPERT",
+          price: "Rs.2400",
+          oldPrice: "",
+          params: "B194",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GLOBULIN, Serum",
+          price: "Rs.180",
+          oldPrice: "",
+          params: "B195",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "GLYCOSYLATED HAEMOGLOBIN , HbA1C",
+          price: "Rs.400",
+          oldPrice: "",
+          params: "B196",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "GRAM STAIN",
+          price: "Rs.270",
+          oldPrice: "",
+          params: "B197",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "GROWTH HORMONE",
+          price: "Rs.800",
+          oldPrice: "",
+          params: "B198",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "GTT (GLUCOSE TOLERANCE TEST) PREGNANCY , PLASMA (2 samples)",
+          price: "Rs.200",
+          oldPrice: "",
+          params: "B199",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "GTT (GLUCOSE TOLERANCE TEST) PREGNANCY , PLASMA (3 samples)",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B200",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title:
+            "GTT ADULTS: PLASMA GLUCOSE (FASTING),URINE GLUCOSE (FASTING),POST GLUCOSE LOAD PLASMA GLUCOSE & URINE GLUCOSE",
+          price: "Rs.280",
+          oldPrice: "",
+          params: "B201",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title:
+            "GTT PREGNANCY:FASTING PLASMA GLUCOSE & URINE GLUCOSE ,POST GLUCOSE LOAD 1 HOUR PLASMA GLUCOSE & URINE GLUCOSE ",
+          price: "Rs.235",
+          oldPrice: "",
+          params: "B202",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "H.PYLORI , IgA",
+          price: "Rs.1650",
+          oldPrice: "",
+          params: "B203",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "H.PYLORI , IgG",
+          price: "Rs.1600",
+          oldPrice: "",
+          params: "B204",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "H1N1 PCR",
+          price: "Rs.4800",
+          oldPrice: "",
+          params: "B365",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HAEMOGLOBIN ELECTROPHORESIS (HPLC)",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B205",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "HAPTOGLOBIN 1",
+          price: "Rs.1900",
+          oldPrice: "",
+          params: "B366",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "HBV DNA PCR , QUALITATIVE",
+          price: "Rs.4000",
+          oldPrice: "",
+          params: "B367",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "HBV DNA PCR , QUANTITATIVE",
+          price: "Rs.5800",
+          oldPrice: "",
+          params: "B206",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HCV RNA GENOTYPING",
+          price: "Rs.9000",
+          oldPrice: "",
+          params: "B207",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HCV RNA PCR",
+          price: "Rs.6500",
+          oldPrice: "",
+          params: "B208",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HDL-CHOL, SERUM",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B209",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "Hemogram",
+          price: "Rs.370",
+          oldPrice: "",
+          params: "B210",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "Hemosidrin (Urine)",
+          price: "Rs.1850",
+          oldPrice: "",
+          params: "B368",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HEPATITIS A , IgM Ab",
+          price: "Rs.950",
+          oldPrice: "",
+          params: "B211",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HEPATITIS B CORE IgM Ab",
+          price: "Rs.1050",
+          oldPrice: "",
+          params: "B212",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HEPATITIS B CORE TOTAL ANTIBODY",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B213",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "HEPATITIS B SURFACE ANTIGEN (AUSTRALIA ANTIGEN)",
+          price: "Rs.300",
+          oldPrice: "",
+          params: "B214",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "HEPATITIS B SURFACE ANTIGEN , QUANTITATIVE",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B215",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HEPATITIS E ANTIBODY IgM",
+          price: "Rs.1450",
+          oldPrice: "",
+          params: "B216",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title:
+            "HISTOPATHOLOGY CONSULTATION-SECOND OPINION , < 5 SLIDES / BLOCKS",
+          price: "Rs.360",
+          oldPrice: "",
+          params: "B369",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title:
+            "HISTOPATHOLOGY CONSULTATION-SECOND OPINION , > 10 SLIDES / BLOCKS",
+          price: "Rs.1000",
+          oldPrice: "",
+          params: "B370",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title:
+            "HISTOPATHOLOGY CONSULTATION-SECOND OPINION , 6-10 SLIDES/BLOCKS",
+          price: "Rs.750",
+          oldPrice: "",
+          params: "B371",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HIV I & II ANTIBODY",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B217",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HLA B27 BY FLOWCYTOMETRY",
+          price: "Rs.1900",
+          oldPrice: "",
+          params: "B219",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HLA B27 BY PCR",
+          price: "Rs.2800",
+          oldPrice: "",
+          params: "B218",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HLA B7",
+          price: "Rs.5700",
+          oldPrice: "",
+          params: "B372",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "HOMOCYSTEINE LEVEL",
+          price: "Rs.1050",
+          oldPrice: "",
+          params: "B220",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "HSV (1 & II), IgG & IgM",
+          price: "Rs.1360",
+          oldPrice: "",
+          params: "B221",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HSV (I & II), IgG",
+          price: "Rs.680",
+          oldPrice: "",
+          params: "B222",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HSV (I & II), IgM",
+          price: "Rs.680",
+          oldPrice: "",
+          params: "B223",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HSV PCR",
+          price: "Rs.4800",
+          oldPrice: "",
+          params: "B224",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Human Papilloma Virus DNA PCR",
+          price: "Rs.2500",
+          oldPrice: "",
+          params: "B373",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "HYDROXYPROGESTERONE 17 OHP",
+          price: "Rs.1250",
+          oldPrice: "",
+          params: "B225",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "IHC DIAGNOSTIC PANEL",
+          price: "Rs.5625",
+          oldPrice: "",
+          params: "B374",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "IHC FIVE MARKERS",
+          price: "Rs.3250",
+          oldPrice: "",
+          params: "B375",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "IHC SINGLE MARKER",
+          price: "Rs.2150",
+          oldPrice: "",
+          params: "B376",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "IHC THREE MARKERS",
+          price: "Rs.2800",
+          oldPrice: "",
+          params: "B378",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "IMMUNOGLOBIN IGA",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B226",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "IMMUNOGLOBULIN IgG",
+          price: "Rs.590",
+          oldPrice: "",
+          params: "B379",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "IMMUOGLOBULIN IGM",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B227",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "INDIAN INK PREPRATION",
+          price: "Rs.280",
+          oldPrice: "",
+          params: "B228",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "INHIBIN A",
+          price: "Rs.1400",
+          oldPrice: "",
+          params: "B229",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "INSULIN , FASTING",
+          price: "Rs.650",
+          oldPrice: "",
+          params: "B230",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "INSULIN , PP",
+          price: "Rs.650",
+          oldPrice: "",
+          params: "B231",
+          delivery: "Sample Daily by 1:00pm Report next day.",
+        },
+        {
+          title: "INSULIN RANDOM , SERUM",
+          price: "Rs.650",
+          oldPrice: "",
+          params: "B232",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "INTERLEUKIN -6",
+          price: "Rs.2800",
+          oldPrice: "",
+          params: "B233",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "IRON STUDIES",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B234",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "JAK 2 MUTATION",
+          price: "Rs.5800",
+          oldPrice: "",
+          params: "B379",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "KAPPA/LAMBDA LIGHT CHAIN (FREE)",
+          price: "Rs.6500",
+          oldPrice: "",
+          params: "B380",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Kidney Function Test (KFT)",
+          price: "Rs.650",
+          oldPrice: "",
+          params: "B236",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "L.E PHENOMENON",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B237",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LACTATE",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B380",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LAP SCORE",
+          price: "Rs.1000",
+          oldPrice: "",
+          params: "B238",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LDH (BODY FLUID)",
+          price: "Rs.350",
+          oldPrice: "",
+          params: "B239",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LDH, SERUM",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B240",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LDL CHOLESTROL",
+          price: "Rs.300",
+          oldPrice: "",
+          params: "B241",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+
+        {
+          title: "LE TEST",
+          price: "Rs.200",
+          oldPrice: "",
+          params: "B381",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "LEAD,BLOOD",
+          price: "Rs.2000",
+          oldPrice: "",
+          params: "B242",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LEPTOSPIRA ANTIBODY",
+          price: "Rs.1400",
+          oldPrice: "",
+          params: "B243",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LH (Luteinizing Hormone)",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B244",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LIPASE",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B245",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LIPID PROFILE",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B246",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "LIPOPROTEIN (A), LP(A)",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B247",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LIQUID BASED CYTOLOGY",
+          price: "Rs.1800",
+          oldPrice: "",
+          params: "B382",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LITHIUM, SERUM",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B248",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Liver Function Test (LFT)",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B249",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+
+        {
+          title: "LIVER KIDNEY MICROSOMAL ANTIBODY, IMMUNOFLUORESENCE LKM",
+          price: "Rs.1800",
+          oldPrice: "",
+          params: "B383",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "LPA (HAINs TEST)",
+          price: "Rs.1450",
+          oldPrice: "",
+          params: "B384",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "LUPUS ANTICOAGULANT BY Drvvt",
+          price: "Rs.1450",
+          oldPrice: "",
+          params: "B251",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MAGNESIUM, SERUM",
+          price: "Rs.450",
+          oldPrice: "",
+          params: "B385",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Malaria Antigen, Vivax & Falciparum",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B501",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Malarial Parasite By Slide",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B252",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "MANTOUX TEST",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B259",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MATERNAL SERUM SCREEN - IV (Quadruple Marker)",
+          price: "Rs.2700",
+          oldPrice: "",
+          params: "B386",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "MATERNAL SERUM SCREEN -II (Dual Marker)",
+          price: "Rs.1900",
+          oldPrice: "",
+          params: "B387",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "MATERNAL SERUM SCREEN -III (Triple Marker)",
+          price: "Rs.2200",
+          oldPrice: "",
+          params: "B388",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "MEAN COPUSCULAR HAEMOGLOBIN CONCENTRATION (MCHC)",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B253",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MEAN CORPUSCULAR HAEMOGLOBIN (MCH)",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B254",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MEAN CORPUSCULAR VOLUME (MCV)",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B255",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MICROFILARIA BY SLIDE",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B256",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "Microglobulin, Serum",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B257",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MICROPROTEIN CSF",
+          price: "Rs.400",
+          oldPrice: "",
+          params: "B389",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MONO TEST",
+          price: "Rs.1100",
+          oldPrice: "",
+          params: "B258",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "MYOGLOBIN, Urine",
+          price: "Rs.1550",
+          oldPrice: "",
+          params: "B260",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "NEW BORN SCREENING",
+          price: "Rs.990",
+          oldPrice: "",
+          params: "B390",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "NIPT",
+          price: "Rs.16500",
+          oldPrice: "",
+          params: "B391",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "OSMOTIC FRAGILITY TEST",
+          price: "Rs.950",
+          oldPrice: "",
+          params: "B261",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "PANCA",
+          price: "Rs.1300",
+          oldPrice: "",
+          params: "B392",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "PACKED CELL VOLUME (PCV)",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B262",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PAP SMEAR",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B263",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PARATHYROID HARMONE (PTH), INTACT",
+          price: "Rs.1450",
+          oldPrice: "",
+          params: "B264",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PH VALUE , URINE",
+          price: "Rs.90",
+          oldPrice: "",
+          params: "B265",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PHENYTOIN LEVEL",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B266",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PHOSPHOROUS, SERUM",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B267",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "PLATELET COUNT",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B268",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "POTASSIUM, SERUM",
+          price: "Rs.140",
+          oldPrice: "",
+          params: "B269",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PREGNANCY TEST URINE (UPT)",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B270",
+          delivery: "Sample Daily by 11:00 pm Report next day.",
+        },
+        {
+          title: "PROCALCITONIN",
+          price: "Rs.2250",
+          oldPrice: "",
+          params: "B271",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROGESTRON",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B272",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "PROLACTIN",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B273",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROSTATE SPECIFIC ANTIGEN (PSA), FREE",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B274",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROSTATE SPECIFIC ANTIGEN (PSA), TOTAL",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B275",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "PROTEIN C FUNCTIONAL",
+          price: "Rs.3600",
+          oldPrice: "",
+          params: "B276",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROTEIN ELECTROPHORESIS,SERUM",
+          price: "Rs.1500",
+          oldPrice: "",
+          params: "B277",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROTEIN S FUNCTIONAL",
+          price: "Rs.3600",
+          oldPrice: "",
+          params: "B278",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROTEIN, SERUM",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B279",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROTEIN, TOTAL -24 HRS URINE",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B280",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROTEIN, TOTAL -BODY FLUIDS",
+          price: "Rs.180",
+          oldPrice: "",
+          params: "B281",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PROTEIN,CREATININE RATIO-URINE",
+          price: "Rs.320",
+          oldPrice: "",
+          params: "B282",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "PT INR",
+          price: "Rs.350",
+          oldPrice: "",
+          params: "B283",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RA FACTOR",
+          price: "Rs.350",
+          oldPrice: "",
+          params: "B284",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RBC COUNT",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B285",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RETICULOCYTE COUNT",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B286",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Rh ANTIBODY TITRE",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B287",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RUBELLA ANTIBODY PANEL , IgG & IgM",
+          price: "Rs.1000",
+          oldPrice: "",
+          params: "B288",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RUBELLA AVIDITY IgM",
+          price: "Rs.1050",
+          oldPrice: "",
+          params: "B393",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RUBELLA IgG",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B289",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "RUBELLA IgM",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B290",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SCRUB TYPHUS SEROLOGY",
+          price: "Rs.1500",
+          oldPrice: "",
+          params: "B291",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SELENIUM SERUM",
+          price: "Rs.3600",
+          oldPrice: "",
+          params: "B506",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SEMEN EXAMINATION",
+          price: "Rs.400",
+          oldPrice: "",
+          params: "B292",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        {
+          title: "SEMEN FRUCTOSE",
+          price: "Rs.190",
+          oldPrice: "",
+          params: "B293",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SGOT, SERUM(AST)",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B294",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SGPT, SERUM(ALT) : ALT, Alanine Amino Transferase",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B295",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SHBG",
+          price: "Rs.1800",
+          oldPrice: "",
+          params: "B505",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SLIDE / BLOCK TISSUE",
+          price: "Rs.180",
+          oldPrice: "",
+          params: "B296",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SLIDE REVIEW/SECOND OPINION",
+          price: "Rs.420",
+          oldPrice: "",
+          params: "B297",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SODIUM, 24 HRS URINE",
+          price: "Rs.180",
+          oldPrice: "",
+          params: "B298",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SODIUM, SERUM",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B299",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "SPECIFIC GRAVITY , URINE",
+          price: "Rs.90",
+          oldPrice: "",
+          params: "B300",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "STONE ANALYSIS",
+          price: "Rs.1150",
+          oldPrice: "",
+          params: "B507",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "STOOL FOR REDUCING SUBSTANCE",
+          price: "Rs.140",
+          oldPrice: "",
+          params: "B301",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "STOOL FUNGUS",
+          price: "Rs.140",
+          oldPrice: "",
+          params: "B302",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "STOOL HANGING DROP",
+          price: "Rs.140",
+          oldPrice: "",
+          params: "B303",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "STOOL OCCULT BLOOD",
+          price: "Rs.140",
+          oldPrice: "",
+          params: "B304",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "STOOL ROUTINE & MICROSCOPIC EXAMINATION",
+          price: "Rs.140",
+          oldPrice: "",
+          params: "B305",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "T.B GOLD (QUANTIFERON GOLD TEST )",
+          price: "Rs.2700",
+          oldPrice: "",
+          params: "B306",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "T3, TOTAL",
+          price: "Rs.230",
+          oldPrice: "",
+          params: "B307",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "T4, TOTAL",
+          price: "Rs.230",
+          oldPrice: "",
+          params: "B308",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TB PCR",
+          price: "Rs.2200",
+          oldPrice: "",
+          params: "B309",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Test only Health Check Up",
+          price: "Rs.1000",
+          oldPrice: "",
+          params: "22 Parameter(s) Covered",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TESTOSTERONE , FREE",
+          price: "Rs.1350",
+          oldPrice: "",
+          params: "B310",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TESTOSTERONE , TOTAL",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B311",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "THALASSEMIA PROFILE",
+          price: "Rs.1100",
+          oldPrice: "",
+          params: "B312",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "THYROID PROFILE",
+          price: "Rs.500",
+          oldPrice: "",
+          params: "B314",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "THYROID PROFILE , FREE (FT3 , FT4 & TSH)",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B315",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TIBC",
+          price: "Rs.300",
+          oldPrice: "",
+          params: "B316",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TISSUE TRANSGLUTAMINASE ANTIBODY (TTG), IgA",
+          price: "Rs.1100",
+          oldPrice: "",
+          params: "B317",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TLC",
+          price: "Rs.90",
+          oldPrice: "",
+          params: "B318",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TORCH PANEL IgG & IgM",
+          price: "Rs.1950",
+          oldPrice: "",
+          params: "B319",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "TORCH PANEL, IgG",
+          price: "Rs.1000",
+          oldPrice: "",
+          params: "B320",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "TORCH PANEL, IgM",
+          price: "Rs.1000",
+          oldPrice: "",
+          params: "B321",
+          delivery: "Sample Daily by 2:30 pm Report next day.",
+        },
+        {
+          title: "TOTAL SERUM IGE",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B322",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TOXOPLASMA , IgG",
+          price: "Rs.900",
+          oldPrice: "",
+          params: "B324",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TOXOPLASMA ANTIBODY PANEL",
+          price: "Rs.600",
+          oldPrice: "",
+          params: "B325",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TPHA",
+          price: "Rs.700",
+          oldPrice: "",
+          params: "B394",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Triglycerides (TG) Serum",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B326",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "TSH",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B327",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "TSH ULTRASENSITIVE",
+          price: "Rs.250",
+          oldPrice: "",
+          params: "B328",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "Typhidot",
+          price: "Rs.400",
+          oldPrice: "",
+          params: "B502",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URIC ACID, SERUM",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B330",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE , EOSINOPHIL COUNT",
+          price: "Rs.120",
+          oldPrice: "",
+          params: "B331",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE FOR FAT GLOBULES",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B332",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE , EOSINOPHIL COUNT",
+          price: "Rs.550",
+          oldPrice: "",
+          params: "B333",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE OCCULT BLOOD",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B334",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE REDUCING SUBSTANCES",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B335",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE ROUTINE & MICROSCOPIC EXAMINATION",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B336",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE SUGAR - 1 HR PP",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B337",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE SUGAR -FASTING",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B338",
+          delivery: "Sample Daily by 11:00pm Report next day.",
+        },
+        {
+          title: "URINE SUGAR- 2 HR PP",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B339",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "URINE UROBILINOGEN",
+          price: "Rs.110",
+          oldPrice: "",
+          params: "B340",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "VASCULITIS BY LIA",
+          price: "Rs.3000",
+          oldPrice: "",
+          params: "B341",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "VDRL",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B342",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "VITAMIN A",
+          price: "Rs.4200",
+          oldPrice: "",
+          params: "B395",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "VITAMIN B12",
+          price: "Rs.850",
+          oldPrice: "",
+          params: "B343",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "VITAMIN D3 (25 HYDROXY)",
+          price: "Rs.1100",
+          oldPrice: "",
+          params: "B344",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "VLDL, SERUM",
+          price: "Rs.150",
+          oldPrice: "",
+          params: "B345",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "WIDAL SLIDE",
+          price: "Rs.170",
+          oldPrice: "",
+          params: "B346",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "WIDAL TEST, TEST TUBE",
+          price: "Rs.200",
+          oldPrice: "",
+          params: "B347",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+        {
+          title: "ZINC",
+          price: "Rs.1440",
+          oldPrice: "",
+          params: "B396",
+          delivery: "Sample Daily by 4:00pm Report next day.",
+        },
+
+        // ✨ TODO: Add the rest of your 407 tests here
+        // 
+      ];
+
+      const cardsPerPage = 14;
+  let currentPage = 1;
+  let filteredData = testData;
+
+  const cardContainer = document.getElementById("card-container");
+  const pagination = document.getElementById("pagination-container");
+  const searchInput = document.getElementById("search-input");
+
+  function renderCards(page, dataSet) {
+    const start = (page - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+    const paginatedCards = dataSet.slice(start, end);
+
+    cardContainer.innerHTML = "";
+
+    if (paginatedCards.length === 0) {
+      cardContainer.innerHTML = `<p class="text-red-500 col-span-full text-center">No results found</p>`;
+      pagination.innerHTML = "";
+      return;
+    }
+
+    paginatedCards.forEach((test) => {
+      const card = document.createElement("div");
+      card.className = "card bg-white rounded-xl shadow-lg p-4 w-full border border-pink-200";
+      card.innerHTML = `
+        <div class="flex justify-between items-start">
+          <div class="w-12 h-12 flex-shrink-0">
+            <img src="/image/defaultPackageIcon.png" alt="icon" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+            <svg class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5zM18 11.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.12 6 2.12zm-9.18-.5L7.4 12l3.54 3.54 5.66-5.66-1.41-1.41-4.24 4.24z"/>
+            </svg>
+            <span>SAFE</span>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-1 text-sm">
+          <h3 class="font-semibold text-gray-800 text-base text-[18px]">${test.title}</h3>
+          <p class="text-gray-600">Report delivery - <span class="text-blue-600">${test.delivery}</span></p>
+          <p>No Special Preparation required</p>
+          <p class="text-[16px]">${test.params}</p>
+        </div>
+
+        <div class="mt-3 flex items-center gap-3">
+          <p class="text-lg font-bold text-gray-800">${test.price}</p>
+          ${test.oldPrice ? `<p class="line-through text-gray-400">${test.oldPrice}</p>` : ""}
+        </div>
+
+       <div class="mt-8 flex gap-2">
+  <!-- Book-a-Test Button -->
+  <a href="/book" class="flex-1">
+    <button class="w-full bg-blue-600 text-white py-2 rounded-md text-sm hover:bg-blue-700 transition">
+      Book-a-Test
+    </button>
+  </a>
+
+  <!-- Add to Cart Button -->
+  <button class="flex-1 bg-gray-100 border border-gray-400 text-gray-800 py-2 rounded-md text-sm hover:bg-gray-200 transition">
+    Add to Cart
+  </button>
+</div>
+
+      `;
+      cardContainer.appendChild(card);
+    });
+  }
+
+  function renderPagination(dataSet) {
+    const pageCount = Math.ceil(dataSet.length / cardsPerPage);
+    pagination.innerHTML = "";
+
+    for (let i = 1; i <= pageCount; i++) {
+      const btn = document.createElement("button");
+      btn.innerText = i;
+      btn.className = `text-lg px-2 py-1 rounded-md border ${
+        i === currentPage ? "bg-blue-600 text-white" : "bg-white text-gray-700"
+      } hover:bg-blue-100 transition duration-200`;
+
+      btn.addEventListener("click", () => {
+        currentPage = i;
+        renderCards(currentPage, dataSet);
+        renderPagination(dataSet);
+      });
+
+      pagination.appendChild(btn);
+    }
+  }
+
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    filteredData = testData.filter((test) =>
+      `${test.title} ${test.params} ${test.delivery}`.toLowerCase().includes(query)
+    );
+    currentPage = 1;
+    renderCards(currentPage, filteredData);
+    renderPagination(filteredData);
+  });
+
+  // Initial Load
+  renderCards(currentPage, filteredData);
+  renderPagination(filteredData);
+</script>
+
+    <br>
+
+    <!-- ✅ Bottom Navbar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full bg-white shadow-md border-t border-gray-200 z-50 md:hidden">
+  <div class="flex justify-between items-center text-center text-sm text-gray-700">
+    
+    <!-- Home -->
+    <a href="./" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      Home
+    </a>
+
+    <!-- Book Test -->
+    <a href="./booktest" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+      </svg>
+      Book
+    </a>
+
+    <!-- Packages -->
+    <a href="./healthpackage" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 6H4v12h16V6zm0-2c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h16z"/>
+      </svg>
+      Packages
+    </a>
+
+    <!-- Call -->
+    <a href="tel:040-4444-2424" class="flex-1 py-2 flex flex-col items-center hover:text-blue-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="m19.23 15.26-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98"/>
+      </svg>
+      Call
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://api.whatsapp.com/send/?phone=918978689444&text=HELLO&type=phone_number&app_absent=0" target="_blank" class="flex-1 py-2 flex flex-col items-center hover:text-green-600">
+      <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88"/>
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+  
+    <!-- footer -->
+    <footer class="bg-[#04261C] text-white px-8 py-12">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Partner With Us -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">About Biogen Labs</h2>
+          <p class="text-sm mb-4">
+            BIOGEN is one of the fastest growing pioneer Diagnostics Company in
+            India mainly focussed in the smaller towns and cities of India with
+            the main aim of providing superior quality diagnostics services to
+            its customers all over India through a very efficient network of
+            labs and collection points.
+          </p>
+          <button
+            class="bg-white text-[#5a1c41] px-4 py-2 rounded font-semibold"
+          >
+            Know More
+          </button>
+          <p class="text-sm mt-6 font-semibold">
+            For bulk test bookings, Reach out to us at:
+          </p>
+          <p class="text-sm mt-1 flex items-center gap-2">
+            <a
+              href="mailto:customer.care@apollodiagnostics.in"
+              class="underline"
+              >info@biogenpathlab.com</a
+            >
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">QUICK LINKS</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/">Home</a></li>
+            <li><a href="/AboutBiogen">About Us</a></li>
+            <li>
+              <a href="/homecollection">Home Collection Query Form</a>
+            </li>
+            <li><a href="/Career">Careers</a></li>
+            <li><a href="/PartnerWithUs">Partner With US</a></li>
+            <!-- <li><a href="/booktest">view-test-report.aspx</a></li> -->
+          </ul>
+        </div>
+
+        <!-- About Us -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Important Links</h2>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="./Corporate-health">Corporate Health Chech-Up Plan</a>
+            </li>
+            <!-- <li><a href="">Term and Conditions</a></li> -->
+            <li><a href="/booktest">Book a Test</a></li>
+            <li><a href="/booktest">All Tests</a></li>
+            <!-- <li><a href="/health">Search For Labs</a></li> -->
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h2 class="text-2xl font-semibold mb-4">Contact Details</h2>
+          <br />
+          <ul class="space-y-2 text-sm">
+            <li>
+              <i class="fa-solid fa-location-dot color-white"></i
+              ><a href="#">
+                Shop# 19, Panchsheel Well-Bazar, Crossings Republik,
+                Ghaziabad</a
+              >
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-phone color-white"></i
+              ><a href="#"> +91 9711219956, +91 9319570520</a>
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-clock color-white"></i
+              ><a href="#"> 7:00 am - 9:00 pm</a>
+            </li>
+            <br />
+            <li>
+              <i class="fa-solid fa-envelope color-white"></i
+              ><a href="#"> info@biogenpathlab.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Language + Bottom Section -->
+      <div class="mt-10 text-right text-sm">
+        <select class="bg-white text-black rounded px-2 py-1">
+          <option>English</option>
+          <!-- Add more languages if needed -->
+        </select>
+      </div>
+    </footer>
+    <footer class="bg-[#0B3D2E] text-white text-sm">
+      <div
+        class="border-t border-gray-700 py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
+      >
+        <!-- Left Text -->
+        <div class="text-center md:text-left mb-3 md:mb-0">
+          <p>
+            Copyrights © 2025 All Rights Reserved, Designed By
+            <a href="#" class="text-blue-400 hover:underline">Abishek Full stack developer</a
+            >.
+          </p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <a href="#" class="bg-gray-800 hover:bg-gray-800 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+              alt="Facebook"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
+              alt="Twitter"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+              alt="Google+"
+              class="w-4 h-4"
+            />
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-2 rounded-full">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+              alt="LinkedIn"
+              class="w-4 h-4"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
